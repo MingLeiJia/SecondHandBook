@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/write" >
+
+            <TextView
+                android:id="@+id/textView1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@drawable/region_icon"
+                android:layout_gravity="center"
+                android:paddingTop="3dp"
+                android:text="@string/choose_region"
+                android:textSize="18dp" />
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal" >
+
+                <Spinner
+                    android:id="@+id/spinner_province"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1" />
+
+                <Spinner
+                    android:id="@+id/spinner_city"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1" />
+
+                <Spinner
+                    android:id="@+id/spinner_county"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:background="@color/write"
+            android:orientation="vertical" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:text="@string/serach_scan" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:background="@color/write"
+            android:orientation="vertical" >
+
+            <ImageView
+                android:id="@+id/iv_scanisbn_search"
+                android:layout_width="150dp"
+                android:layout_height="100dp"
+                android:layout_gravity="center_horizontal"
+                android:src="@drawable/scan_isbn" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:text="@string/scan_isbn_search" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:background="@color/write"
+            android:orientation="vertical" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:text="@string/search_name" />
+        </LinearLayout>
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="200dp"
+            android:layout_marginTop="5dp"
+            android:background="@color/write" >
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/linearLayout1"
+                android:layout_centerHorizontal="true" >
+
+                <CheckBox
+                    android:id="@+id/checkBox_price"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignLeft="@+id/checkBox_new_or_old"
+                    android:layout_below="@+id/checkBox_new_or_old"
+                    android:layout_marginTop="15dp"
+                    android:text="@string/price_lowest" />
+
+                <CheckBox
+                    android:id="@+id/checkBox_new_or_old"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:text="@string/recommend_new" />
+
+                <TextView
+                    android:id="@+id/textView2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/checkBox_new_or_old"
+                    android:layout_toRightOf="@+id/checkBox_new_or_old"
+                    android:text="@string/checkbox_can_none" />
+            </RelativeLayout>
+
+            <LinearLayout
+                android:id="@+id/linearLayout1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:gravity="center_horizontal|center_vertical"
+                android:orientation="horizontal" >
+
+                <EditText
+                    android:id="@+id/et_input_book_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:drawableLeft="@drawable/book_name_icon"
+                    android:hint="@string/hint_search_book"
+                    android:singleLine="true"
+                    android:textSize="16sp" >
+
+                    <requestFocus />
+                </EditText>
+
+                <ImageButton
+                    android:id="@+id/ibn_search_booklist"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/btn_default_catagory"
+                    android:paddingTop="7dp"
+                    android:src="@drawable/search_book" />
+            </LinearLayout>
+
+        </RelativeLayout>
+    </LinearLayout>
+
+</ScrollView>

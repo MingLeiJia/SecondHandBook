@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" >
+
+    <SurfaceView
+        android:id="@+id/preview_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center" />
+
+    <com.secondhandbook.zxing.ViewfinderView
+        android:id="@+id/viewfinder_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="vertical" >
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerInParent="true"
+            android:gravity="center"
+            android:paddingBottom="10dp"
+            android:paddingTop="100dp"
+            android:text="请扫描二维码"
+            android:textColor="#d78816"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/btn_light_control"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="400dp"
+            android:background="@drawable/torch_off" />
+
+        <ImageView
+            android:id="@+id/btn_cancel_scan"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="500dp"
+            android:src="@drawable/btn_camera_cancel_scan" />
+    </RelativeLayout>
+
+    <ImageView
+        android:id="@+id/iv_camera_diy_circle"
+        android:layout_width="480px"
+        android:layout_height="480px"
+        android:layout_gravity="center"
+        android:background="@drawable/bar_code_center" />
+
+    <ImageView
+        android:id="@+id/iv_camera_diy"
+        android:layout_width="470px"
+        android:layout_height="470px"
+        android:layout_gravity="center"
+        android:background="@drawable/bar_code_round_grey"
+        android:visibility="invisible" />
+
+    <ProgressBar
+        android:id="@+id/pg_camera_diy"
+        style="@style/CustomProgressStyle"
+        android:layout_width="450px"
+        android:layout_height="450px"
+        android:layout_gravity="center"
+        android:indeterminate="true"
+        android:indeterminateDrawable="@drawable/progressbar" />
+
+    <ImageView
+        android:id="@+id/iv_camera_diy_corner"
+        android:layout_width="480px"
+        android:layout_height="480px"
+        android:layout_gravity="center"
+        android:background="@drawable/bar_code_four_corner" />
+
+</FrameLayout>

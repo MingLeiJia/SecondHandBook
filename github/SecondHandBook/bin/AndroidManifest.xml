@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.secondhandbook.aty"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="14"
+        android:targetSdkVersion="19" />
+
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.INTERNET"/>
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/app_icon"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+        <activity
+            android:name=".MainActivity"
+            android:label="@string/app_name"
+            android:windowSoftInputMode="adjustPan|stateHidden" >
+
+            <!-- 底部tab布局在弹出输入法的时候会跟上去，设置这句话就不会跟着弹上去了 -->
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".Aty_Home"
+            android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name=".Aty_Buy"
+            android:label="@string/main_buy" >
+        </activity>
+        <activity
+            android:name=".Aty_Sell"
+            android:label="@string/main_sell" >
+        </activity>
+        <activity
+            android:name=".Aty_My_Tourist"
+            android:label="@string/main_my" >
+        </activity>
+        <activity
+            android:name=".Aty_My"
+            android:label="@string/main_my" >
+        </activity>
+        <activity
+            android:name=".Aty_Register"
+            android:label="@string/register" >
+        </activity>
+        <activity
+            android:name=".Aty_BookList"
+            android:label="@string/booklist" >
+        </activity>
+        <activity
+            android:name=".Aty_Book_Detail"
+            android:label="@string/bookdetail" >
+        </activity>
+        <activity
+            android:name=".Aty_Forget_Pass_One"
+            android:label="@string/forget_password" >
+        </activity>
+        <activity
+            android:name=".Aty_Forget_Pass_Two"
+            android:label="@string/forget_password" >
+        </activity>
+        <activity
+            android:name=".Aty_Already_Buy"
+            android:label="@string/already_buy_books" >
+        </activity>
+        <activity
+            android:name=".Aty_Already_Sell"
+            android:label="@string/already_sell_books" >
+        </activity>
+        <activity
+            android:name=".Aty_Contact"
+            android:label="@string/contact_information" >
+        </activity>
+        <activity
+            android:name=".Aty_Change_PassWord"
+            android:label="@string/change_password" >
+        </activity>
+        <activity
+            android:name=".Aty_CollectBook"
+            android:label="@string/collect_book" >
+        </activity>
+        <activity android:name=".Aty_Already_Buy_Finish" >
+        </activity>
+        <activity android:name=".Aty_Already_Buy_WaitReceive" >
+        </activity>
+        <activity android:name=".Aty_Already_Buy_WaitShipment" >
+        </activity>
+        <activity android:name=".Aty_Already_Sell_Finish" >
+        </activity>
+        <activity android:name=".Aty_Already_Sell_Selling" >
+        </activity>
+        <activity android:name=".Aty_Already_Sell_WaitAffirm" >
+        </activity>
+        <activity android:name=".Aty_Already_Sell_WaitShipment" >
+        </activity>
+        <activity
+            android:name=".Aty_PersonalSetting"
+            android:label="@string/personal_setting" >
+        </activity>
+        <activity
+            android:name=".Aty_PersonalSetting_Edit"
+            android:label="@string/personal_setting" >
+        </activity>
+        <activity
+            android:name=".Aty_ScanBarCode"
+            android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
+            android:windowSoftInputMode="stateAlwaysHidden" >
+        </activity>
+        <activity 
+            android:name=".Aty_Protocol"
+            android:label="@string/register_statements_2"></activity>
+    </application>
+
+    
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.CAMERA" />
+
+    <uses-feature android:name="android.hardware.camera" />
+    <uses-feature android:name="android.hardware.camera.autofocus" />
+
+</manifest>

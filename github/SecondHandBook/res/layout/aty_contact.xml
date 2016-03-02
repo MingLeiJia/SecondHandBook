@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+	<RelativeLayout
+	    android:layout_width="fill_parent"
+	    android:layout_height="130dp" >
+
+	    <TextView
+	        android:id="@+id/textView1"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_centerHorizontal="true"
+	        android:paddingBottom="10dp"
+	        android:paddingTop="10dp"
+	        android:text="@string/contact_information"
+	        android:textSize="25sp"
+	        android:textStyle="bold" />
+
+	    <ImageView
+	        android:id="@+id/iv_contact_photo"
+	        android:layout_width="80dp"
+	        android:layout_height="80dp"
+	        android:layout_below="@+id/textView1"
+	        android:layout_centerHorizontal="true"
+	        android:src="@drawable/my_head_photo" />
+	</RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal|center_vertical"
+            android:layout_marginLeft="20dp"
+            android:drawableLeft="@drawable/contact_account"
+            android:drawablePadding="20dp"
+            android:paddingBottom="10dp"
+            android:paddingTop="10dp"
+            android:text="@string/contact_accountname"
+            android:textSize="18sp" />
+
+        <EditText
+            android:id="@+id/et_contact_name"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginLeft="15dp"
+            android:layout_weight="1"
+            android:background="@color/write"
+            android:ems="10"
+            android:inputType="number"
+            android:paddingBottom="10dp"
+            android:paddingTop="10dp"
+            android:textSize="18sp" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="280dp"
+        android:layout_height="1dip"
+        android:layout_gravity="center_horizontal"
+        android:background="@color/divide"
+        android:gravity="center_vertical" />
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal|center_vertical"
+            android:layout_marginLeft="20dp"
+            android:drawableLeft="@drawable/contact_phone"
+            android:drawablePadding="20dp"
+            android:paddingBottom="10dp"
+            android:paddingTop="10dp"
+            android:text="@string/contact_phone"
+            android:textSize="18sp" />
+
+        <EditText
+            android:id="@+id/et_contact_phone"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginLeft="15dp"
+            android:layout_weight="1"
+            android:background="@color/write"
+            android:ems="10"
+            android:inputType="number"
+            android:paddingBottom="10dp"
+            android:paddingTop="10dp"
+            android:textSize="18sp" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="280dp"
+        android:layout_height="1dip"
+        android:layout_gravity="center_horizontal"
+        android:background="@color/divide"
+        android:gravity="center_vertical" />
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal|center_vertical"
+            android:layout_marginLeft="20dp"
+            android:drawableLeft="@drawable/contact_religion"
+            android:drawablePadding="20dp"
+            android:paddingBottom="10dp"
+            android:paddingTop="10dp"
+            android:text="@string/contact_religion"
+            android:textSize="18sp" />
+
+        <EditText
+            android:id="@+id/et_contact_religion"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginLeft="15dp"
+            android:layout_weight="1"
+            android:background="@color/write"
+            android:ems="10"
+            android:inputType="text"
+            android:paddingBottom="10dp"
+            android:paddingTop="10dp"
+            android:textSize="18sp" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="280dp"
+        android:layout_height="1dip"
+        android:layout_gravity="center_horizontal"
+        android:background="@color/divide"
+        android:gravity="center_vertical" />
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal|center_vertical"
+            android:layout_marginLeft="20dp"
+            android:drawableLeft="@drawable/contact_email"
+            android:drawablePadding="20dp"
+            android:paddingBottom="10dp"
+            android:paddingTop="10dp"
+            android:text="@string/contact_email"
+            android:textSize="18sp" />
+
+        <EditText
+            android:id="@+id/et_contact_email"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginLeft="15dp"
+            android:layout_weight="1"
+            android:background="@color/write"
+            android:ems="10"
+            android:inputType="number"
+            android:paddingBottom="10dp"
+            android:paddingTop="10dp"
+            android:textSize="18sp" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="280dp"
+        android:layout_height="1dip"
+        android:layout_gravity="center_horizontal"
+        android:background="@color/divide"
+        android:gravity="center_vertical" />
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal|center_vertical"
+            android:layout_marginLeft="20dp"
+            android:drawableLeft="@drawable/contact_school"
+            android:drawablePadding="20dp"
+            android:paddingBottom="10dp"
+            android:paddingTop="10dp"
+            android:text="@string/contact_school"
+            android:textSize="18sp" />
+
+        <EditText
+            android:id="@+id/et_contact_school"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginLeft="15dp"
+            android:layout_weight="1"
+            android:background="@color/write"
+            android:ems="10"
+            android:inputType="number"
+            android:paddingBottom="10dp"
+            android:paddingTop="10dp"
+            android:textSize="18sp" />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/bn_contact_call"
+        android:layout_width="280dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:layout_gravity="center"
+        android:background="@drawable/btn_default"
+        android:text="@string/contact_call" />
+
+</LinearLayout>

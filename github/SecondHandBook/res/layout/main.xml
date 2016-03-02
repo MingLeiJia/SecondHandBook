@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TabHost xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:texticon="http://schemas.android.com/apk/res/com.secondhandbook.aty"
+    android:id="@android:id/tabhost"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" >
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:id="@+id/myactivitygroup_view"
+            android:layout_width="fill_parent"
+            android:layout_height="0.0dip" 
+            android:layout_weight="1.0">
+
+            <FrameLayout
+                android:id="@android:id/tabcontent"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_weight="1.0" />
+        </LinearLayout>
+
+        <TabWidget
+            android:id="@android:id/tabs"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.0"
+            android:visibility="gone" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="#000000" />
+
+        <com.secondhandbook.textbutton.TextWithIconGroup
+            android:id="@+id/main_radio"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:background="@color/tab_back"
+            android:gravity="center_vertical"
+            android:orientation="horizontal" >
+
+            <com.secondhandbook.textbutton.TextViewWithIcon
+                android:id="@+id/radio_button0"
+                style="@style/HomeTab"
+                android:background="@drawable/pic_tab_home"
+                android:tag="主页"
+                texticon:selected="@drawable/pic_tab_home_p" />
+
+            <com.secondhandbook.textbutton.TextViewWithIcon
+                android:id="@+id/radio_button1"
+                style="@style/HomeTab"
+                android:background="@drawable/pic_tab_buy"
+                android:tag="我要买书"
+                texticon:selected="@drawable/pic_tab_buy_p" />
+
+            <com.secondhandbook.textbutton.TextViewWithIcon
+                android:id="@+id/radio_button2"
+                style="@style/HomeTab"
+                android:background="@drawable/pic_tab_sell"
+                android:tag="我要卖书"
+                texticon:selected="@drawable/pic_tab_sell_p" />
+
+            <com.secondhandbook.textbutton.TextViewWithIcon
+                android:id="@+id/radio_button3"
+                style="@style/HomeTab"
+                android:background="@drawable/pic_tab_my"
+                android:tag="我的"
+                texticon:selected="@drawable/pic_tab_my_p" />
+        </com.secondhandbook.textbutton.TextWithIconGroup>
+    </LinearLayout>
+
+</TabHost>

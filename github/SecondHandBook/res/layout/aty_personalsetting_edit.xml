@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/write"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:background="@color/write"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="20dp"
+                android:paddingBottom="10dp"
+                android:paddingTop="10dp"
+                android:text="@string/personal_setting_nickname"
+                android:textSize="18sp" />
+
+            <EditText
+                android:id="@+id/et_setting_nickname"
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:layout_gravity="center"
+                android:layout_marginLeft="15dp"
+                android:layout_weight="1"
+                android:background="@color/write"
+                android:ems="10"
+                android:inputType="number"
+                android:paddingBottom="10dp"
+                android:paddingTop="10dp"
+                android:textSize="18sp" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="280dp"
+            android:layout_height="1dip"
+            android:layout_gravity="center_horizontal"
+            android:background="@color/divide"
+            android:gravity="center_vertical" />
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="20dp"
+                android:paddingBottom="10dp"
+                android:paddingTop="10dp"
+                android:text="@string/personal_setting_sex"
+                android:textSize="18sp" />
+
+            <EditText
+                android:id="@+id/et_setting_sex"
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:layout_gravity="center"
+                android:layout_marginLeft="15dp"
+                android:layout_weight="1"
+                android:background="@color/write"
+                android:ems="10"
+                android:inputType="text"
+                android:paddingBottom="10dp"
+                android:paddingTop="10dp"
+                android:textSize="18sp" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="280dp"
+            android:layout_height="1dip"
+            android:layout_gravity="center_horizontal"
+            android:background="@color/divide"
+            android:gravity="center_vertical" />
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="20dp"
+                android:paddingBottom="10dp"
+                android:paddingTop="10dp"
+                android:text="@string/personal_setting_school"
+                android:textSize="18sp" />
+
+            <EditText
+                android:id="@+id/et_setting_school"
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:layout_gravity="center"
+                android:layout_marginLeft="15dp"
+                android:layout_weight="1"
+                android:background="@color/write"
+                android:ems="10"
+                android:inputType="text"
+                android:paddingBottom="10dp"
+                android:paddingTop="10dp"
+                android:textSize="18sp" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="280dp"
+            android:layout_height="1dip"
+            android:layout_gravity="center_horizontal"
+            android:background="@color/divide"
+            android:gravity="center_vertical" />
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="20dp"
+                android:paddingBottom="10dp"
+                android:paddingTop="10dp"
+                android:text="@string/personal_setting_religion"
+                android:textSize="18sp" />
+
+            <EditText
+                android:id="@+id/et_setting_religion"
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:layout_gravity="center"
+                android:layout_marginLeft="15dp"
+                android:layout_weight="1"
+                android:background="@color/write"
+                android:ems="10"
+                android:inputType="text"
+                android:paddingBottom="10dp"
+                android:paddingTop="10dp"
+                android:textSize="18sp" />
+        </LinearLayout>
+    </LinearLayout>
+    
+        <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/write"
+        android:orientation="vertical" 
+        android:layout_marginTop="30dp">
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/write"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="20dp"
+                android:paddingBottom="10dp"
+                android:paddingTop="10dp"
+                android:text="@string/personal_setting_phone"
+                android:textSize="18sp" />
+
+            <EditText
+                android:id="@+id/et_setting_phone"
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:layout_gravity="center"
+                android:layout_marginLeft="15dp"
+                android:layout_weight="1"
+                android:background="@color/write"
+                android:ems="10"
+                android:inputType="phone"
+                android:paddingBottom="10dp"
+                android:paddingTop="10dp"
+                android:textSize="18sp" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="280dp"
+            android:layout_height="1dip"
+            android:layout_gravity="center_horizontal"
+            android:background="@color/divide"
+            android:gravity="center_vertical" />
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="20dp"
+                android:paddingBottom="10dp"
+                android:paddingTop="10dp"
+                android:text="@string/personal_setting_email"
+                android:textSize="18sp" />
+
+            <EditText
+                android:id="@+id/et_setting_email"
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:layout_gravity="center"
+                android:layout_marginLeft="15dp"
+                android:layout_weight="1"
+                android:background="@color/write"
+                android:ems="10"
+                android:inputType="textEmailAddress"
+                android:paddingBottom="10dp"
+                android:paddingTop="10dp"
+                android:textSize="18sp" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="280dp"
+            android:layout_height="1dip"
+            android:layout_gravity="center_horizontal"
+            android:background="@color/divide"
+            android:gravity="center_vertical" />
+
+       <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="20dp"
+                android:paddingBottom="10dp"
+                android:paddingTop="10dp"
+                android:text="@string/personal_setting_changepass"
+                android:textSize="18sp" />
+
+ 
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,11 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.secondhandbook.aty.MainActivity" >
+
+        <item
+        android:id="@+id/setting_edit_finsih"
+        android:orderInCategory="100"
+        android:showAsAction="always"
+        android:title="@string/personal_setting_edit_finish"/>
+
+</menu>

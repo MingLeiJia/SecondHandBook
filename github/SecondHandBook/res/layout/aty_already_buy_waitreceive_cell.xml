@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/write"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" >
+
+        <LinearLayout
+            android:layout_width="92dp"
+            android:layout_height="fill_parent"
+            android:gravity="center" >
+
+            <ImageView
+                android:id="@+id/iv_alreadybuy_waitreceive"
+                android:layout_width="92dp"
+                android:layout_height="130dp"
+                android:src="@drawable/hotbook_big" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/tv_alreadybuy_waitreceive_cell_bookname"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:paddingBottom="5dp"
+                android:paddingLeft="20dp"
+                android:paddingTop="20dp"
+                android:singleLine="true"
+                android:text="bookname"
+                android:textSize="18sp" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:id="@+id/tv_alreadybuy_waitreceive_cell_author"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="5dp"
+                    android:paddingLeft="20dp"
+                    android:paddingTop="5dp"
+                    android:text="author"
+                    android:textColor="@color/booklist_author"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/tv_alreadybuy_waitreceive_cell_neworold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="5dp"
+                    android:paddingLeft="40dp"
+                    android:paddingTop="5dp"
+                    android:text="neworold"
+                    android:textColor="@color/booklist_neworold"
+                    android:textSize="25sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal" >
+
+                <com.secondhandbook.util.MoneyTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="5dp"
+                    android:paddingLeft="20dp"
+                    android:paddingTop="5dp"
+                    android:text="￥"
+                    android:textColor="@color/RED"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/tv_alreadybuy_waitreceive_cell_newcost"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="5dp"
+                    android:paddingLeft="2dp"
+                    android:paddingTop="5dp"
+                    android:text="price"
+                    android:textColor="@color/RED"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/tv_alreadybuy_waitreceive_cell_oldcost"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="40dp"
+                    android:paddingBottom="20dp"
+                    android:paddingTop="5dp"
+                    android:text="原价：cost"
+                    android:textColor="@color/base"
+                    android:textSize="15sp" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="1dip"
+        android:layout_gravity="center"
+        android:background="@color/divide" />
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="3dp"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:id="@+id/tv_alreadybuy_waitreceive_sellername"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:paddingBottom="3dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:paddingTop="3dp"
+            android:text="卖家姓名"
+            android:textSize="18sp" />
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:layout_marginRight="10dp"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:id="@+id/tv_alreadybuy_waitreceive_cell_complain"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/setaround_textview"
+                    android:paddingBottom="5dp"
+                    android:paddingLeft="3dp"
+                    android:paddingRight="3dp"
+                    android:paddingTop="5dp"
+                    android:text="@string/complain"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/tv_alreadybuy_waitreceive_cell_contact"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:background="@drawable/setaround_textview"
+                    android:paddingBottom="5dp"
+                    android:paddingLeft="3dp"
+                    android:paddingRight="3dp"
+                    android:paddingTop="5dp"
+                    android:text="@string/contact_seller"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/tv_alreadybuy_waitreceive_cell_affirmreceive"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:background="@drawable/setaround_textview"
+                    android:paddingBottom="5dp"
+                    android:paddingLeft="3dp"
+                    android:paddingRight="3dp"
+                    android:paddingTop="5dp"
+                    android:text="@string/affirm_receive"
+                    android:textColor="@color/RED"
+                    android:textSize="16sp" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

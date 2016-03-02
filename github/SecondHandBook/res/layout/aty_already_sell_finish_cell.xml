@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/write"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" >
+
+        <LinearLayout
+            android:layout_width="92dp"
+            android:layout_height="fill_parent"
+            android:gravity="center" >
+
+            <ImageView
+                android:id="@+id/iv_alreadysell_finish"
+                android:layout_width="92dp"
+                android:layout_height="130dp"
+                android:src="@drawable/hotbook_big" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/tv_alreadysell_finish_cell_bookname"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:paddingBottom="5dp"
+                android:paddingLeft="20dp"
+                android:paddingTop="20dp"
+                android:singleLine="true"
+                android:text="bookname"
+                android:textSize="18sp" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:id="@+id/tv_alreadysell_finish_cell_author"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="5dp"
+                    android:paddingLeft="20dp"
+                    android:paddingTop="5dp"
+                    android:text="author"
+                    android:textColor="@color/booklist_author"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/tv_alreadysell_finish_cell_neworold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="5dp"
+                    android:paddingLeft="40dp"
+                    android:paddingTop="5dp"
+                    android:text="neworold"
+                    android:textColor="@color/booklist_neworold"
+                    android:textSize="25sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal" >
+
+                <com.secondhandbook.util.MoneyTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="5dp"
+                    android:paddingLeft="20dp"
+                    android:paddingTop="5dp"
+                    android:text="￥"
+                    android:textColor="@color/RED"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/tv_alreadysell_finish_cell_newcost"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="5dp"
+                    android:paddingLeft="2dp"
+                    android:paddingTop="5dp"
+                    android:text="price"
+                    android:textColor="@color/RED"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/tv_alreadysell_finish_cell_oldcost"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="40dp"
+                    android:paddingBottom="20dp"
+                    android:paddingTop="5dp"
+                    android:text="原价：cost"
+                    android:textColor="@color/base"
+                    android:textSize="15sp" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+
+</LinearLayout>

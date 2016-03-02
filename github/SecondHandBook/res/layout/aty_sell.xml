@@ -1,0 +1,309 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" >
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/write" >
+
+            <TextView
+                android:id="@+id/textView1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@drawable/region_icon"
+                android:layout_gravity="center"
+                android:paddingTop="3dp"
+                android:text="@string/choose_region"
+                android:textSize="18dp" />
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal" >
+
+                <Spinner
+                    android:id="@+id/spinner_province_sell"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1" />
+
+                <Spinner
+                    android:id="@+id/spinner_city_sell"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1" />
+
+                <Spinner
+                    android:id="@+id/spinner_county_sell"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1" />
+            </LinearLayout>
+        </LinearLayout>
+        
+        
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:background="@color/write"
+            android:orientation="vertical" >
+
+            <ImageView
+                android:id="@+id/iv_sell_scanisbn_search"
+                android:layout_width="150dp"
+                android:layout_height="100dp"
+                android:layout_gravity="center_horizontal"
+                android:src="@drawable/scan_isbn" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:text="@string/scan_isbn_putaway" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:orientation="vertical" >
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/write"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:id="@+id/text_bookname"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="10dp"
+                    android:paddingLeft="10dp"
+                    android:paddingTop="10dp"
+                    android:text="@string/book_name"
+                    android:textSize="16dp" />
+
+                <EditText
+                    android:id="@+id/et_sell_bookname"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="15dp"
+                    android:background="@color/write"
+                    android:hint="@string/scan_auto_book"
+                    android:paddingBottom="10dp"
+                    android:paddingTop="10dp"
+                    android:textSize="16dp" />
+            </LinearLayout>
+
+            <View
+                android:id="@+id/divide_vertical"
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="@color/divide"
+                android:gravity="center_vertical" />
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/write"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:id="@+id/text_price"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="10dp"
+                    android:paddingLeft="10dp"
+                    android:paddingTop="10dp"
+                    android:text="@string/book_price"
+                    android:textSize="16dp" />
+
+                <EditText
+                    android:id="@+id/et_sell_price"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="15dp"
+                    android:background="@color/write"
+                    android:hint="@string/scan_auto_book"
+                    android:paddingBottom="10dp"
+                    android:paddingTop="10dp"
+                    android:textSize="16dp" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:orientation="vertical" >
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/write"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:id="@+id/text_isbn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="10dp"
+                    android:paddingLeft="10dp"
+                    android:paddingTop="10dp"
+                    android:text="@string/book_tips"
+                    android:textSize="16dp" />
+
+                <EditText
+                    android:id="@+id/et_sell_isbn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="15dp"
+                    android:background="@color/write"
+                    android:hint="@string/hint_input_tips"
+                    android:paddingBottom="10dp"
+                    android:paddingTop="10dp"
+                    android:textSize="16dp" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="@color/divide"
+                android:gravity="center_vertical" />
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/write"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:id="@+id/text_bookcost"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="10dp"
+                    android:paddingLeft="10dp"
+                    android:paddingTop="10dp"
+                    android:text="@string/book_cost"
+                    android:textSize="16dp" />
+
+                <EditText
+                    android:id="@+id/et_sell_cost"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="15dp"
+                    android:background="@color/write"
+                    android:hint="@string/hint_input_cost"
+                    android:inputType="number"
+                    android:paddingBottom="10dp"
+                    android:paddingTop="10dp"
+                    android:textSize="16dp" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="@color/divide"
+                android:gravity="center_vertical" />
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/write"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:id="@+id/text_class"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="10dp"
+                    android:paddingLeft="10dp"
+                    android:paddingTop="10dp"
+                    android:text="@string/book_category"
+                    android:textSize="16dp" />
+
+                <TextView
+                    android:id="@+id/tv_sell_category"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="15dp"
+                    android:background="@color/write"
+                    android:hint="@string/hint_input_category"
+                    android:inputType="number"
+                    android:paddingBottom="10dp"
+                    android:paddingTop="10dp"
+                    android:textSize="16dp"
+                    android:textColor="@color/zise"
+                     />
+            </LinearLayout>
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="@color/divide"
+                android:gravity="center_vertical" />
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/write"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:id="@+id/text_new"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="10dp"
+                    android:paddingLeft="10dp"
+                    android:paddingTop="10dp"
+                    android:text="@string/book_new_or_old"
+                    android:textSize="16dp" />
+
+                <TextView
+                    android:id="@+id/tv_sell_neworold"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="15dp"
+                    android:background="@color/write"
+                    android:hint="@string/hint_input_new_or_old"
+                    android:inputType="number"
+                    android:paddingBottom="10dp"
+                    android:paddingTop="10dp"
+                    android:textSize="16dp"
+                    android:textColor="@color/zise"
+                     />
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/bn_sell_book"
+            android:layout_width="280dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical|center_horizontal"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/btn_press"
+            android:enabled="false"
+            android:paddingBottom="3dp"
+            android:paddingTop="3dp"
+            android:text="@string/button_sell_book" />
+    </LinearLayout>
+
+</ScrollView>
