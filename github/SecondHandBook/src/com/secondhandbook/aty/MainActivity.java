@@ -4,10 +4,13 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 import com.secondhandbook.info.AccountInfo;
+import com.secondhandbook.info.SPKey;
 import com.secondhandbook.textbutton.TextViewWithIcon;
 import com.secondhandbook.textbutton.TextWithIconGroup;
 import com.secondhandbook.textbutton.TextWithIconGroup.OnItemClickListener;
 import com.secondhandbook.util.Config;
+import com.secondhandbook.util.SPUtils;
+
 import android.app.TabActivity;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -38,8 +41,7 @@ public class MainActivity extends TabActivity implements OnItemClickListener{
         this.mAIntent = new Intent(this,Aty_Home.class);
         this.mBIntent = new Intent(this,Aty_Buy.class);
         this.mCIntent = new Intent(this,Aty_Sell.class);
-        SharedPreferences preferences=getSharedPreferences(Config.SharedPreName, MODE_PRIVATE);
-		String token=preferences.getString(AccountInfo.TOKEN, "hello");
+        String token = (String)SPUtils.getParam(this, SPKey.TOKEN, "hello");
 		if(token.equals("hello") || token.equals(""))
 		{
 			this.mDIntent = new Intent(this,Aty_My_Tourist.class);

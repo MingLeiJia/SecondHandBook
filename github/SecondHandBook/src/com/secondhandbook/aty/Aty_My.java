@@ -3,6 +3,9 @@ package com.secondhandbook.aty;
 import java.util.Timer;
 import java.util.TimerTask;
 
+import com.secondhandbook.info.SPKey;
+import com.secondhandbook.util.SPUtils;
+
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -19,6 +22,14 @@ public class Aty_My extends Activity {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.aty_my);
+		
+		String nickname = (String) SPUtils.getParam(this, SPKey.NICKNAME, "user");
+		String account = (String) SPUtils.getParam(this, SPKey.ACCOUNT, "user");
+		
+		TextView nickname_show = (TextView) findViewById(R.id.tv_my_name);
+		TextView account_show = (TextView) findViewById(R.id.tv_my_account);
+		nickname_show.setText(nickname);
+		account_show.setText(account);
 		
 		TextView my_buy = (TextView) findViewById(R.id.tv_my_buy_book);
 		my_buy.setOnClickListener(new MyOnClickListener());

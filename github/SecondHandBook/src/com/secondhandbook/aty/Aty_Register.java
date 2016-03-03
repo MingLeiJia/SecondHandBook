@@ -4,6 +4,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import com.secondhandbook.info.UserAction;
+import com.secondhandbook.util.Information;
 import com.secondhandbook.util.JsonTool;
 import com.secondhandbook.util.MD5Tool;
 import com.secondhandbook.util.TimeCountUtil;
@@ -123,21 +124,24 @@ public class Aty_Register extends Activity{
 							try {
 								jsonobject = new JSONObject(jsonResult);
 								JSONObject jsonresult = jsonobject.getJSONObject(JsonTool.JSON_RESULT_CODE);
-								String status = jsonresult.getString("status");
-								if(status.equals("1"))
+								String status = jsonresult.getString(Information.STATUS);
+								if(status.equals(Information.SUCCESS))
 								{
 
 									Toast.makeText(Aty_Register.this, "恭喜你，注册成功！", Toast.LENGTH_SHORT).show();
 									finish();
-								}else if(status.equals("0"))
+								}else if(status.equals(Information.FAIL))
 								{
-									String reason = jsonresult.getString("reason");
-									if(reason.equals("1"))
+									String reason = jsonresult.getString(Information.REASON);
+									if(reason.equals(Information.USER_EXISTED))
 									{											
-										Toast.makeText(Aty_Register.this, "对不起，密码错误！", Toast.LENGTH_SHORT).show();
-									}else if(reason.equals("0"))
+										Toast.makeText(Aty_Register.this, "对不起，用户已存在", Toast.LENGTH_SHORT).show();
+									}else if(reason.equals(Information.SERVER_ERROR))
 									{
-										Toast.makeText(Aty_Register.this, "对不起，用户不存在！", Toast.LENGTH_SHORT).show();
+										Toast.makeText(Aty_Register.this, "对不起，服务器故障！", Toast.LENGTH_SHORT).show();
+									}else if(reason.equals(Information.MSGCODE_ERROR))
+									{
+										Toast.makeText(Aty_Register.this, "对不起，验证码错误！", Toast.LENGTH_SHORT).show();
 									}
 								}
 							} catch (JSONException e) {

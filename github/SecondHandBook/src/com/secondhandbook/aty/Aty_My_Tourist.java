@@ -3,9 +3,12 @@ package com.secondhandbook.aty;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import com.secondhandbook.info.SPKey;
 import com.secondhandbook.info.UserAction;
+import com.secondhandbook.util.Information;
 import com.secondhandbook.util.JsonTool;
 import com.secondhandbook.util.MD5Tool;
+import com.secondhandbook.util.SPUtils;
 import com.secondhandbook.util.textcheck.NewWatcher;
 
 import android.annotation.SuppressLint;
@@ -75,10 +78,7 @@ public class Aty_My_Tourist extends Activity {
 				intent2 = null;
 				break;
 			case R.id.bn_login:
-				
-				pdialog=new ProgressDialog(Aty_My_Tourist.this);
-				pdialog.setMessage("正在登录，请稍后...");
-				pdialog.show();
+
 				
 				String accountinfo = account.getText().toString().trim();
 				String password = pass.getText().toString().trim();
@@ -91,7 +91,7 @@ public class Aty_My_Tourist extends Activity {
 					Toast.makeText(Aty_My_Tourist.this, "密码不能为空", Toast.LENGTH_SHORT)
 							.show();
 					return;
-				}/*
+				}
 				if(!accountinfo.contains("@") && !accountinfo.matches("\\d{11}"))
 				{
 					Toast.makeText(Aty_My_Tourist.this, "账号输入有误！", Toast.LENGTH_SHORT).show();
@@ -99,8 +99,11 @@ public class Aty_My_Tourist extends Activity {
 				}else if(!password.matches("[0-9a-zA-Z@#$_]{6,15}")){
 					Toast.makeText(Aty_My_Tourist.this, "密码输入有误！", Toast.LENGTH_SHORT).show();
 					return;
-				}*/
+				}
 				
+				pdialog=new ProgressDialog(Aty_My_Tourist.this);
+				pdialog.setMessage("正在登录，请稍后...");
+				pdialog.show();
 				try {
 					ua.login(accountinfo, MD5Tool.md5(password), 
 							UserAction.ACTION_LOGIN, new UserAction.SuccessCallback() {
@@ -109,25 +112,30 @@ public class Aty_My_Tourist extends Activity {
 								public void onSuccess(String jsonResult) {
 									// TODO Auto-generated method stub
 									pdialog.dismiss();
-									System.out.println("#########"+jsonResult);
 									
 									JSONObject jsonobject;
 									try {
 										jsonobject = new JSONObject(jsonResult);
 										JSONObject jsonresult = jsonobject.getJSONObject(JsonTool.JSON_RESULT_CODE);
-										String status = jsonresult.getString("status");
-										if(status.equals("1"))
+										String status = jsonresult.getString(Information.STATUS);
+										if(status.equals(Information.SUCCESS))
 										{
+											String token = jsonresult.getString(Information.JSON_TOKEN);
+											String nickname = jsonresult.getString(Information.JSON_NICKNAME);
+											String account = jsonresult.getString(Information.JSON_ACCOUNT);
+											SPUtils.setParam(Aty_My_Tourist.this, SPKey.TOKEN, token);
+											SPUtils.setParam(Aty_My_Tourist.this, SPKey.NICKNAME, nickname);
+											SPUtils.setParam(Aty_My_Tourist.this, SPKey.ACCOUNT, account);
 											
 											Toast.makeText(Aty_My_Tourist.this, "恭喜你，登录成功！", Toast.LENGTH_SHORT).show();
 											findViewById(R.id.ll).setVisibility(View.GONE);
-										}else if(status.equals("0"))
+										}else if(status.equals(Information.FAIL))
 										{
 											String reason = jsonresult.getString("reason");
-											if(reason.equals("1"))
+											if(reason.equals(Information.PWD_WRONG))
 											{											
 												Toast.makeText(Aty_My_Tourist.this, "对不起，密码错误！", Toast.LENGTH_SHORT).show();
-											}else if(reason.equals("0"))
+											}else if(reason.equals(Information.NO_USER))
 											{
 												Toast.makeText(Aty_My_Tourist.this, "对不起，用户不存在！", Toast.LENGTH_SHORT).show();
 											}
@@ -144,7 +152,7 @@ public class Aty_My_Tourist extends Activity {
 								public void onFail(int status, int reason) {
 									// TODO Auto-generated method stub
 									pdialog.dismiss();
-									Toast.makeText(Aty_My_Tourist.this, "对不起，无法连接到网络！", Toast.LENGTH_SHORT).show();
+									Toast.makeText(Aty_My_Tourist.this, "对不起，无法连接到服务器！", Toast.LENGTH_SHORT).show();
 								}
 							});
 				} catch (JSONException e) {
