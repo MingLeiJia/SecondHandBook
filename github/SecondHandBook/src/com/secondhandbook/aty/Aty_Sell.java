@@ -54,6 +54,7 @@ public class Aty_Sell extends Activity {
 	private Handler hd;
 	private Button sell;
 	private List<String> categoryList,categoryDetailList,neworoldList;
+	private ProgressDialog pdialog;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
@@ -161,45 +162,7 @@ public class Aty_Sell extends Activity {
 		public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
 			// TODO Auto-generated method stub
 			switch (parent.getId()) {
-			case R.id.bn_sell_book:
-				
-				String Provinceselected = provinceSpinner.getSelectedItem().toString();
-				String CitySelected = citySpinner.getSelectedItem().toString();
-				String CountySelected = countySpinner.getSelectedItem().toString();
-		        String region = Provinceselected+CitySelected+CountySelected;
-				
-				String isbn = bookisbn.getText().toString();
-				String name = bookname.getText().toString();
-				String oldprice = bookprice.getText().toString();
-				String newprice = bookcost.getText().toString();
-				String categoryname = category.getText().toString();
-				String newold = neworold.getText().toString();
 
-				UserAction ua = new UserAction(Aty_Sell.this);
-				try {
-					ua.publicbook(isbn, name, oldprice, newprice, 
-							categoryname, newold, region, UserAction.ACTION_PUBLICBOOK, 
-							new UserAction.SuccessCallback() {
-								
-								@Override
-								public void onSuccess(String jsonResult) {
-									// TODO Auto-generated method stub
-									
-								}
-							}, new UserAction.FailCallback() {
-								
-								@Override
-								public void onFail(int status, int reason) {
-									// TODO Auto-generated method stub
-									
-								}
-							});
-				} catch (JSONException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-				
-				break;
 			case R.id.spinner_province_sell:
 				//position为当前省级选中的值的序号
 
@@ -268,6 +231,50 @@ public class Aty_Sell extends Activity {
 			case R.id.iv_sell_scanisbn_search:				
 				Intent openCameraIntent1 = new Intent(Aty_Sell.this,Aty_ScanBarCode.class);
 				startActivityForResult(openCameraIntent1, 0);
+				break;
+				
+			case R.id.bn_sell_book:
+				
+				pdialog=new ProgressDialog(Aty_Sell.this);
+				pdialog.setMessage("正在发布呢，稍安勿躁哟~");
+				pdialog.show();
+				
+				String Provinceselected = provinceSpinner.getSelectedItem().toString();
+				String CitySelected = citySpinner.getSelectedItem().toString();
+				String CountySelected = countySpinner.getSelectedItem().toString();
+		        String region = Provinceselected+CitySelected+CountySelected;
+				
+				String isbn = bookisbn.getText().toString();
+				String name = bookname.getText().toString();
+				String oldprice = bookprice.getText().toString();
+				String newprice = bookcost.getText().toString();
+				String categoryname = category.getText().toString();
+				String newold = neworold.getText().toString();
+
+				UserAction ua = new UserAction(Aty_Sell.this);
+				try {
+					ua.publicbook(isbn, name, oldprice, newprice, 
+							categoryname, newold, region, UserAction.ACTION_PUBLICBOOK, 
+							new UserAction.SuccessCallback() {
+								
+								@Override
+								public void onSuccess(String jsonResult) {
+									// TODO Auto-generated method stub
+									pdialog.dismiss();
+								}
+							}, new UserAction.FailCallback() {
+								
+								@Override
+								public void onFail(int status, int reason) {
+									// TODO Auto-generated method stub
+									pdialog.dismiss();
+								}
+							});
+				} catch (JSONException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				
 				break;
 			default:
 				break;
