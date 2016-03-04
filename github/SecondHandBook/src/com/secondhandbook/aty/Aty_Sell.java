@@ -5,12 +5,16 @@ import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
 
+import org.json.JSONException;
+
 import com.secondhandbook.util.ScanBookInfo;
 import com.secondhandbook.util.textcheck.NewWatcher;
 import com.secondhandbook.aty.adapter.Sell_CategoryAdapter;
 import com.secondhandbook.aty.adapter.Sell_NeworOldAdapter;
+import com.secondhandbook.info.UserAction;
 import com.secondhandbook.util.DoubanUtil;
 import com.secondhandbook.util.Region;
+
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -93,6 +97,7 @@ public class Aty_Sell extends Activity {
 
 		category.setOnClickListener(new MyOnClickListener());
 		neworold.setOnClickListener(new MyOnClickListener());
+		sell.setOnClickListener(new MyOnClickListener());
 
 
 		categoryList = new ArrayList<String>();
@@ -156,6 +161,45 @@ public class Aty_Sell extends Activity {
 		public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
 			// TODO Auto-generated method stub
 			switch (parent.getId()) {
+			case R.id.bn_sell_book:
+				
+				String Provinceselected = provinceSpinner.getSelectedItem().toString();
+				String CitySelected = citySpinner.getSelectedItem().toString();
+				String CountySelected = countySpinner.getSelectedItem().toString();
+		        String region = Provinceselected+CitySelected+CountySelected;
+				
+				String isbn = bookisbn.getText().toString();
+				String name = bookname.getText().toString();
+				String oldprice = bookprice.getText().toString();
+				String newprice = bookcost.getText().toString();
+				String categoryname = category.getText().toString();
+				String newold = neworold.getText().toString();
+
+				UserAction ua = new UserAction(Aty_Sell.this);
+				try {
+					ua.publicbook(isbn, name, oldprice, newprice, 
+							categoryname, newold, region, UserAction.ACTION_PUBLICBOOK, 
+							new UserAction.SuccessCallback() {
+								
+								@Override
+								public void onSuccess(String jsonResult) {
+									// TODO Auto-generated method stub
+									
+								}
+							}, new UserAction.FailCallback() {
+								
+								@Override
+								public void onFail(int status, int reason) {
+									// TODO Auto-generated method stub
+									
+								}
+							});
+				} catch (JSONException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				
+				break;
 			case R.id.spinner_province_sell:
 				//position为当前省级选中的值的序号
 

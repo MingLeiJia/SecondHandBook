@@ -11,7 +11,9 @@ import com.secondhandbook.util.Config;
 import com.secondhandbook.util.DoubanUtil;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
@@ -92,40 +94,52 @@ public class Aty_Buy extends Activity {
 				startActivityForResult(openCameraIntent, 0);
 				break;
 			case R.id.ibn_search_booklist:
-				String input = bookISBN.getText().toString();
-				String isbn,bookname;
 				
-				String Provinceselected = provinceSpinner.getSelectedItem().toString();
-				String CitySelected = citySpinner.getSelectedItem().toString();
-				String CountySelected = countySpinner.getSelectedItem().toString();
-		        String region = Provinceselected+CitySelected+CountySelected;
-		        				
-				if(input.matches("9\\d{12}"))
-				{
-					isbn = input;
-					bookname = null;
-				}else
-				{
-					isbn = null;
-					bookname = input;
-				}
-				if(input.length() > 0 )
-				{
-					Intent intent1 = new Intent(Aty_Buy.this, Aty_BookList.class);
-					Bundle bundle = new Bundle();
-					bundle.putInt(Config.KEY_ACTION,UserAction.ACTION_SEARCHBOOK);
-					bundle.putString(BookInfo.BOOKISBN,isbn);
-					bundle.putString(BookInfo.BOOKNAME, bookname);
-					bundle.putString(BookInfo.REGION, region);
-					bundle.putBoolean(BookInfo.BOOKNEWEST, isNewest);
-					bundle.putBoolean(BookInfo.BOOKLOWEST, isLowest);
-					intent1.putExtras(bundle);
-					startActivity(intent1);
-					intent1 = null;					
-				}else
-				{
-					Toast.makeText(Aty_Buy.this, "请输入书名或者ISBN号查询", Toast.LENGTH_SHORT).show();
-				}
+				new AlertDialog.Builder(Aty_Buy.this)
+				.setTitle("友情提示")
+				.setMessage("输入地址得到更准确的结果哦~")
+				.setPositiveButton("确定", new android.content.DialogInterface.OnClickListener(){
+
+					public void onClick(DialogInterface dialog,int which) {
+						// TODO Auto-generated method stub
+						String input = bookISBN.getText().toString();
+						String isbn,bookname;
+						
+						String Provinceselected = provinceSpinner.getSelectedItem().toString();
+						String CitySelected = citySpinner.getSelectedItem().toString();
+						String CountySelected = countySpinner.getSelectedItem().toString();
+				        String region = Provinceselected+CitySelected+CountySelected;
+				        				
+						if(input.matches("9\\d{12}"))
+						{
+							isbn = input;
+							bookname = null;
+						}else
+						{
+							isbn = null;
+							bookname = input;
+						}
+						if(input.length() > 0 )
+						{
+							Intent intent1 = new Intent(Aty_Buy.this, Aty_BookList.class);
+							Bundle bundle = new Bundle();
+							bundle.putInt(Config.KEY_ACTION,UserAction.ACTION_SEARCHBOOK);
+							bundle.putString(BookInfo.BOOKISBN,isbn);
+							bundle.putString(BookInfo.BOOKNAME, bookname);
+							bundle.putString(BookInfo.REGION, region);
+							bundle.putBoolean(BookInfo.BOOKNEWEST, isNewest);
+							bundle.putBoolean(BookInfo.BOOKLOWEST, isLowest);
+							intent1.putExtras(bundle);
+							startActivity(intent1);
+							intent1 = null;					
+						}else
+						{
+							Toast.makeText(Aty_Buy.this, "请输入书名或者ISBN号查询", Toast.LENGTH_SHORT).show();
+						}
+					}
+				}).create().show();
+				
+
 				break;
 			default:
 				break;
@@ -209,7 +223,6 @@ public class Aty_Buy extends Activity {
 	protected void onResume() {
 		// TODO Auto-generated method stub
 		super.onResume();
-		Toast.makeText(Aty_Buy.this, "选择地区搜索结果更加精确哦~", Toast.LENGTH_SHORT).show();
 		setSpinner();
         //省级下拉框监听
         provinceSpinner.setOnItemSelectedListener(new MyOnItemSelectedListener());      

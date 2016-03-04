@@ -2,7 +2,7 @@ package com.secondhandbook.util;
 
 public class Config {
 
-	public static String GATE_URL = "http://jiadinglei.6655.la:17897/Project/originAjax.action";
+	public static String GATE_URL = "http://jiadinglei.6655.la/Project/originAjaxt.action";
 
 	// 请求参数的键
 	public static final String KEY_ACTION = "action";
@@ -13,10 +13,6 @@ public class Config {
 	public static final int STATUS_FAIL = 0;
 	public static final int STATUS_FAIL_REASON_OTHER = 0;
 
-
-	
-	//sharedpreference名字
-	public static final String SharedPreName = "SharedPreferenceName";
 	
 	public static String CHARSET = "UTF-8";
 

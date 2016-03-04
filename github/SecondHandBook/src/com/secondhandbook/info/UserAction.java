@@ -18,6 +18,9 @@ public class UserAction {
 	public static final int ACTION_REGISTER = 7;
 	public static final int ACTION_PASSFORGET = 8;
 	public static final int ACTION_PASSRESET = 9;
+	
+	public static final int ACTION_PUBLICBOOK = 11;
+	public static final int ACTION_BUYBOOK = 10;
 
 
 	private Context context = null;
@@ -121,6 +124,42 @@ public class UserAction {
 		});
 		accountInfo = null;
 	}
+	
+	
+	public void publicbook(String isbn,String bookname,String oldprice,String newprice,
+			String category, String neworold,String region,int action,
+			final SuccessCallback successCallback,
+			final FailCallback failCallback) throws JSONException {
+
+		BookInfo bookInfo = new BookInfo(context);
+		bookInfo.publicbook(isbn, bookname, oldprice, newprice, 
+				category, neworold, region, action,
+				new BookInfo.SuccessCallback() {
+			
+			@Override
+			public void onSuccess(String jsonResult) {
+				// TODO Auto-generated method stub
+				if (successCallback != null) {
+					successCallback.onSuccess(jsonResult);
+				} else {
+					failCallback.onFail(Config.STATUS_FAIL,
+							Config.STATUS_FAIL_REASON_OTHER);
+				}
+			}
+		}, new BookInfo.FailCallback() {
+			
+			@Override
+			public void onFail(int status, int reason) {
+				// TODO Auto-generated method stub
+				if (failCallback != null) {
+					failCallback.onFail(status, reason);
+				}
+			}
+		});
+
+		bookInfo = null;
+	}
+	
 
 	/**
 	 * 成功回调方法
