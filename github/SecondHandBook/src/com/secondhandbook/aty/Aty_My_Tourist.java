@@ -3,6 +3,7 @@ package com.secondhandbook.aty;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import com.secondhandbook.info.AccountInfo;
 import com.secondhandbook.info.SPKey;
 import com.secondhandbook.info.UserAction;
 import com.secondhandbook.util.Information;
@@ -123,9 +124,11 @@ public class Aty_My_Tourist extends Activity {
 											String token = jsonresult.getString(Information.JSON_TOKEN);
 											String nickname = jsonresult.getString(Information.JSON_NICKNAME);
 											String account = jsonresult.getString(Information.JSON_ACCOUNT);
+											int userid = jsonresult.getInt(AccountInfo.USER_ID);
 											SPUtils.setParam(Aty_My_Tourist.this, SPKey.TOKEN, token);
 											SPUtils.setParam(Aty_My_Tourist.this, SPKey.NICKNAME, nickname);
 											SPUtils.setParam(Aty_My_Tourist.this, SPKey.ACCOUNT, account);
+											SPUtils.setParam(Aty_My_Tourist.this, SPKey.USERID, userid);
 											
 											Toast.makeText(Aty_My_Tourist.this, "¹§Ï²Äã£¬µÇÂ¼³É¹¦£¡", Toast.LENGTH_SHORT).show();
 											findViewById(R.id.ll).setVisibility(View.GONE);

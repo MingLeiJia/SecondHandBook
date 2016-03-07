@@ -126,13 +126,13 @@ public class UserAction {
 	}
 	
 	
-	public void publicbook(String isbn,String bookname,String oldprice,String newprice,
+	public void publicbook(int userid, String isbn,String bookname,String oldprice,String newprice,
 			String category, String neworold,String region,int action,
 			final SuccessCallback successCallback,
 			final FailCallback failCallback) throws JSONException {
 
 		BookInfo bookInfo = new BookInfo(context);
-		bookInfo.publicbook(isbn, bookname, oldprice, newprice, 
+		bookInfo.publicbook(userid, isbn, bookname, oldprice, newprice, 
 				category, neworold, region, action,
 				new BookInfo.SuccessCallback() {
 			
@@ -160,6 +160,70 @@ public class UserAction {
 		bookInfo = null;
 	}
 	
+	
+	public void searchbook(int userid, String isbn,String region,boolean isLowest, boolean isNewest,int action,
+			final SuccessCallback successCallback,
+			final FailCallback failCallback) throws JSONException {
+
+		BookInfo bookInfo = new BookInfo(context);
+		bookInfo.searchbook(userid, isbn,  region, isLowest,isNewest,action,
+				new BookInfo.SuccessCallback() {
+			
+			@Override
+			public void onSuccess(String jsonResult) {
+				// TODO Auto-generated method stub
+				if (successCallback != null) {
+					successCallback.onSuccess(jsonResult);
+				} else {
+					failCallback.onFail(Config.STATUS_FAIL,
+							Config.STATUS_FAIL_REASON_OTHER);
+				}
+			}
+		}, new BookInfo.FailCallback() {
+			
+			@Override
+			public void onFail(int status, int reason) {
+				// TODO Auto-generated method stub
+				if (failCallback != null) {
+					failCallback.onFail(status, reason);
+				}
+			}
+		});
+
+		bookInfo = null;
+	}
+	
+	public void showhotbook(int action,
+			final SuccessCallback successCallback,
+			final FailCallback failCallback) throws JSONException {
+
+		BookInfo bookInfo = new BookInfo(context);
+		bookInfo.showhotbook(action,
+				new BookInfo.SuccessCallback() {
+			
+			@Override
+			public void onSuccess(String jsonResult) {
+				// TODO Auto-generated method stub
+				if (successCallback != null) {
+					successCallback.onSuccess(jsonResult);
+				} else {
+					failCallback.onFail(Config.STATUS_FAIL,
+							Config.STATUS_FAIL_REASON_OTHER);
+				}
+			}
+		}, new BookInfo.FailCallback() {
+			
+			@Override
+			public void onFail(int status, int reason) {
+				// TODO Auto-generated method stub
+				if (failCallback != null) {
+					failCallback.onFail(status, reason);
+				}
+			}
+		});
+
+		bookInfo = null;
+	}
 
 	/**
 	 * 成功回调方法

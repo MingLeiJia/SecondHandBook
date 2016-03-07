@@ -98,7 +98,8 @@ public class Aty_Buy extends Activity {
 				new AlertDialog.Builder(Aty_Buy.this)
 				.setTitle("友情提示")
 				.setMessage("输入地址得到更准确的结果哦~")
-				.setPositiveButton("确定", new android.content.DialogInterface.OnClickListener(){
+				.setNegativeButton("去设置", null)
+				.setPositiveButton("设置好了", new android.content.DialogInterface.OnClickListener(){
 
 					public void onClick(DialogInterface dialog,int which) {
 						// TODO Auto-generated method stub

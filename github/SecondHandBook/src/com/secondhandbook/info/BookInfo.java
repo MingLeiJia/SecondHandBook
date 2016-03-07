@@ -43,6 +43,19 @@ public class BookInfo implements Parcelable{
 	
 	public static String BOOKCOVERURL = "coverurl";
 	
+	public static String ISNEWEST = "isnewest";
+	public static String ISLOWEST = "islowest";
+	
+	//热门书籍相关key
+	public static String HOTBOOT1 = "hotbook1";
+	public static String HOTBOOT2 = "hotbook2";
+	public static String HOTBOOT3 = "hotbook3";
+	public static String HOTBOOT4 = "hotbook4";
+	public static String HOTBOOT5 = "hotbook5";
+	public static String HOTBOOT6 = "hotbook6";
+	public static String HOTBOOT7 = "hotbook7";
+
+
 	public String book_name;
 	public String book_author;
 	public String book_oldprice;
@@ -311,19 +324,58 @@ public class BookInfo implements Parcelable{
 	 * @param failCallback
 	 * @throws JSONException
 	 */
-	public void publicbook(String isbn,String bookname,String oldprice,String newprice,
+	public void publicbook(int userid,String isbn,String bookname,String oldprice,String newprice,
 			String category, String neworold,String region,int action, 
 			final SuccessCallback successCallback,
 			final FailCallback failCallback)throws JSONException
 	{
 		// 将请求参数转化成json字符串
 		Map<String, Object> map = new HashMap<String, Object>();
+		map.put(AccountInfo.USER_ID, userid);
 		map.put(BookInfo.BOOKISBN, isbn);
 		map.put(BookInfo.BOOKNAME, bookname);
 		map.put(BookInfo.BOOKPRICE, oldprice);
 		map.put(BookInfo.BOOKCOST, newprice);
 		map.put(BookInfo.BOOKCATEGORY, category);
 		map.put(BookInfo.BOOKNEWOROLD, neworold);
+		map.put(BookInfo.REGION, region);
+		String jsonRequestParams = JsonTool.createJsonString(
+				JsonTool.JSON_REQUEST_PARAMS, map);
+		map = null;
+		System.out.println(jsonRequestParams); 
+		// 带着请求参数链接服务器
+		new Netconnection(context,Config.GATE_URL, HttpMethod.POST,
+				new Netconnection.SuccessCallback() {
+
+					@Override
+					public void onSuccess(String result) {
+
+						if (successCallback != null) {
+							successCallback.onSuccess(result);
+						}
+					}
+				}, new Netconnection.FailCallback() {
+
+					@Override
+					public void onFail(int status, int reason) {
+
+						if (failCallback != null) {
+							failCallback.onFail(status, reason);
+						}
+					}
+				}, action,jsonRequestParams);
+	}
+	
+	public void searchbook(int userid, String isbn,String region, boolean isLowest, boolean isNewest,int action, 
+			final SuccessCallback successCallback,
+			final FailCallback failCallback)throws JSONException
+	{
+		// 将请求参数转化成json字符串
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put(AccountInfo.USER_ID, userid);
+		map.put(BookInfo.BOOKISBN, isbn);
+		map.put(BookInfo.ISLOWEST, isLowest);
+		map.put(BookInfo.ISNEWEST, isNewest);
 		map.put(BookInfo.REGION, region);
 		String jsonRequestParams = JsonTool.createJsonString(
 				JsonTool.JSON_REQUEST_PARAMS, map);

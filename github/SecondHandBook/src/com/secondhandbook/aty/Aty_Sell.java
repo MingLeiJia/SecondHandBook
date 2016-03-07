@@ -6,14 +6,21 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 import org.json.JSONException;
+import org.json.JSONObject;
 
 import com.secondhandbook.util.ScanBookInfo;
 import com.secondhandbook.util.textcheck.NewWatcher;
 import com.secondhandbook.aty.adapter.Sell_CategoryAdapter;
 import com.secondhandbook.aty.adapter.Sell_NeworOldAdapter;
+import com.secondhandbook.info.BookInfo;
+import com.secondhandbook.info.SPKey;
 import com.secondhandbook.info.UserAction;
+import com.secondhandbook.util.Config;
 import com.secondhandbook.util.DoubanUtil;
+import com.secondhandbook.util.Information;
+import com.secondhandbook.util.JsonTool;
 import com.secondhandbook.util.Region;
+import com.secondhandbook.util.SPUtils;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
@@ -99,7 +106,8 @@ public class Aty_Sell extends Activity {
 		category.setOnClickListener(new MyOnClickListener());
 		neworold.setOnClickListener(new MyOnClickListener());
 		sell.setOnClickListener(new MyOnClickListener());
-
+ 
+		
 
 		categoryList = new ArrayList<String>();
 		categoryList.add("文史哲科");categoryList.add("经政法社");categoryList.add("自然科学");
@@ -234,46 +242,105 @@ public class Aty_Sell extends Activity {
 				break;
 				
 			case R.id.bn_sell_book:
-				
-				pdialog=new ProgressDialog(Aty_Sell.this);
-				pdialog.setMessage("正在发布呢，稍安勿躁哟~");
-				pdialog.show();
-				
-				String Provinceselected = provinceSpinner.getSelectedItem().toString();
-				String CitySelected = citySpinner.getSelectedItem().toString();
-				String CountySelected = countySpinner.getSelectedItem().toString();
-		        String region = Provinceselected+CitySelected+CountySelected;
-				
-				String isbn = bookisbn.getText().toString();
-				String name = bookname.getText().toString();
-				String oldprice = bookprice.getText().toString();
-				String newprice = bookcost.getText().toString();
-				String categoryname = category.getText().toString();
-				String newold = neworold.getText().toString();
+									
+				new AlertDialog.Builder(Aty_Sell.this)
+				.setTitle("友情提示")
+				.setMessage("设置地区发布更好哦~")
+				.setCancelable(false)
+				.setNegativeButton("去设置", null)
+				.setPositiveButton("设置好了", new android.content.DialogInterface.OnClickListener(){
 
-				UserAction ua = new UserAction(Aty_Sell.this);
-				try {
-					ua.publicbook(isbn, name, oldprice, newprice, 
-							categoryname, newold, region, UserAction.ACTION_PUBLICBOOK, 
-							new UserAction.SuccessCallback() {
-								
-								@Override
-								public void onSuccess(String jsonResult) {
-									// TODO Auto-generated method stub
-									pdialog.dismiss();
-								}
-							}, new UserAction.FailCallback() {
-								
-								@Override
-								public void onFail(int status, int reason) {
-									// TODO Auto-generated method stub
-									pdialog.dismiss();
-								}
-							});
-				} catch (JSONException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
+					public void onClick(DialogInterface dialog,int which) {
+						// TODO Auto-generated method stub
+						
+						pdialog=new ProgressDialog(Aty_Sell.this);
+						pdialog.setMessage("正在发布呢，稍安勿躁哟~");
+						pdialog.show();
+						
+						String Provinceselected = provinceSpinner.getSelectedItem().toString();
+						String CitySelected = citySpinner.getSelectedItem().toString();
+						String CountySelected = countySpinner.getSelectedItem().toString();
+				        String region = Provinceselected+CitySelected+CountySelected;
+						
+						String isbn = bookisbn.getText().toString();
+						String name = bookname.getText().toString();
+						String oldprice = bookprice.getText().toString();
+						String newprice = bookcost.getText().toString();
+						String categoryname = category.getText().toString();
+						String newold = neworold.getText().toString();
+
+						int userid = (Integer) SPUtils.getParam(Aty_Sell.this, SPKey.USERID, -1);
+						UserAction ua = new UserAction(Aty_Sell.this);
+						try {
+							ua.publicbook(userid, isbn, name, oldprice, newprice, 
+									categoryname, newold, region, UserAction.ACTION_PUBLICBOOK, 
+									new UserAction.SuccessCallback() {
+										
+										@Override
+										public void onSuccess(String jsonResult) {
+											// TODO Auto-generated method stub
+											pdialog.dismiss();
+											System.out.println(jsonResult);
+											try {
+												JSONObject jsonobject = new JSONObject(jsonResult);
+												JSONObject jsonresult = jsonobject.getJSONObject(JsonTool.JSON_RESULT_CODE);
+												String status = jsonresult.getString(Information.STATUS);
+												if(status.equals(Information.SUCCESS))
+												{
+
+													new AlertDialog.Builder(Aty_Sell.this)
+													.setTitle("友情提示")
+													.setMessage("恭喜您，发布成功啦！")
+													.setCancelable(false)
+													.setPositiveButton("知道啦", new android.content.DialogInterface.OnClickListener(){
+
+														public void onClick(DialogInterface dialog,int which) {
+															// TODO Auto-generated method stub
+															
+														}
+													}).create().show();
+												}else if(status.equals(Information.FAIL))
+												{
+													new AlertDialog.Builder(Aty_Sell.this)
+													.setTitle("友情提示")
+													.setMessage("对不起，您发布的书籍信息不正确！")
+													.setCancelable(false)
+													.setPositiveButton("知道啦", new android.content.DialogInterface.OnClickListener(){
+
+														public void onClick(DialogInterface dialog,int which) {
+															// TODO Auto-generated method stub
+															
+														}
+													}).create().show();
+												}
+												bookname.setText("");
+												bookprice.setText("");
+												bookisbn.setText("");
+												bookcost.setText("");
+												category.setText("");
+												neworold.setText("");
+											} catch (JSONException e) {
+												// TODO Auto-generated catch block
+												e.printStackTrace();
+											}
+										}
+									}, new UserAction.FailCallback() {
+										
+										@Override
+										public void onFail(int status, int reason) {
+											// TODO Auto-generated method stub
+											pdialog.dismiss();
+											Toast.makeText(Aty_Sell.this, "对不起，无法连接到服务器！", Toast.LENGTH_SHORT).show();
+										}
+									});
+						} catch (JSONException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}
+					}
+				}).create().show();
+				
+				
 				
 				break;
 			default:

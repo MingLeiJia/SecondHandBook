@@ -14,6 +14,6 @@ public class Config {
 	public static final int STATUS_FAIL_REASON_OTHER = 0;
 
 	
-	public static String CHARSET = "UTF-8";
+	public static String CHARSET = "GB2312";
 
 }

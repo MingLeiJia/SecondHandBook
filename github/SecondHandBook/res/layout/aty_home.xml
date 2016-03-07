@@ -161,7 +161,7 @@
 
                 <ImageView
                     android:id="@+id/iv_hotbook_big"
-                    android:layout_width="92dp"
+                    android:layout_width="121dp"
                     android:layout_height="130dp"
                     android:layout_gravity="center"
                     android:src="@drawable/hotbook_big" />
@@ -189,6 +189,7 @@
 
                     <ImageView
                         android:id="@+id/iv_hotbook_small_1"
+                        android:scaleType="fitCenter"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -197,6 +198,7 @@
 
                     <ImageView
                         android:id="@+id/iv_hotbook_small_2"
+                        android:scaleType="fitCenter"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -205,6 +207,7 @@
 
                     <ImageView
                         android:id="@+id/iv_hotbook_small_3"
+                        android:scaleType="fitCenter"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -227,6 +230,7 @@
 
                     <ImageView
                         android:id="@+id/iv_hotbook_small_4"
+                        android:scaleType="fitCenter"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -235,6 +239,7 @@
 
                     <ImageView
                         android:id="@+id/iv_hotbook_small_5"
+                        android:scaleType="fitCenter"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -243,6 +248,7 @@
 
                     <ImageView
                         android:id="@+id/iv_hotbook_small_6"
+                        android:scaleType="fitCenter"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
