@@ -1,26 +1,26 @@
+/**
+ * @author MingLei Jia
+ */
 package com.secondhandbook.aty;
 
 import java.io.BufferedInputStream;
 import java.io.InputStream;
 import java.net.URL;
 import java.net.URLConnection;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import com.secondhandbook.aty.R.id;
-import com.secondhandbook.info.BookInfo;
-import com.secondhandbook.info.UserAction;
-import com.secondhandbook.util.Config;
-import com.secondhandbook.util.JsonTool;
-
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
+import android.support.v4.view.ViewPager;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -30,17 +30,45 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.secondhandbook.info.BookInfo;
+import com.secondhandbook.info.UserAction;
+import com.secondhandbook.util.Config;
+import com.secondhandbook.util.ImageHelper;
+import com.secondhandbook.util.JsonTool;
+import com.secondhandbook.viewpager.CarouselViewPager;
+import com.secondhandbook.viewpager.MyViewPager;
+
 public class Aty_Home extends Activity {
 
 	private ImageView hotbook_big, hotbook_small1, hotbook_small2, hotbook_small3, 
 	hotbook_small4, hotbook_small5, hotbook_small6;
 	private String url1, url2, url3, url4, url5, url6, url7;
+	
+	private ViewPager mViewpager ;
+	private LinearLayout layoutDots;
+	
+	private String[] cpurl;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.aty_home);
+		
+		initView();
 
+		getCarouselBook();
+
+		getHotBookCover();
+   
+	}
+
+	public void initView()
+	{
+		
+		mViewpager = (ViewPager) findViewById(R.id.viewPager);
+		layoutDots = (LinearLayout) findViewById(R.id.viewGroup);
+		
+		
 		Button bn_wszk = (Button) findViewById(R.id.bn_wszk);
 		Button bn_jzfs = (Button) findViewById(R.id.bn_jzfs);
 		Button bn_zrkx = (Button) findViewById(R.id.bn_zrkx);
@@ -73,31 +101,57 @@ public class Aty_Home extends Activity {
 		hotbook_small5.setOnClickListener(new myOnClickListener());
 		hotbook_small6.setOnClickListener(new myOnClickListener());
 
-		getHotBookCoverUrl();
-
-
+	}
+	
+	public void getCarouselBook()
+	{
+		UserAction ua = new UserAction(this);
+		try {
+			ua.downCarouseBook(UserAction.ACTION_DOWNCAROUSEBOOK,
+					new UserAction.SuccessCallback() {
+						
+						@Override
+						public void onSuccess(String jsonResult) {
+							// TODO Auto-generated method stub
+							JSONObject jsonObject;
+							try {
+								jsonObject = new JSONObject(jsonResult);
+								JSONObject jsonresult = jsonObject.getJSONObject(JsonTool.JSON_RESULT_CODE);
+								String cpurl1 = jsonresult.getString(BookInfo.CAROUSEBOOK1);
+								String cpurl2 = jsonresult.getString(BookInfo.CAROUSEBOOK2);
+								String cpurl3 = jsonresult.getString(BookInfo.CAROUSEBOOK3);
+								String cpurl4 = jsonresult.getString(BookInfo.CAROUSEBOOK4);
+								cpurl = new String[4];
+								cpurl[0] = cpurl1;
+								cpurl[1] = cpurl2;
+								cpurl[2] = cpurl3;
+								cpurl[3] = cpurl4;
+								System.out.println("%%%%%%%%%"+jsonresult.toString());
+	
+								new MyViewPager(Aty_Home.this, cpurl, layoutDots,mViewpager);
 		
-   
+							} catch (JSONException e) {
+								// TODO Auto-generated catch block
+								e.printStackTrace();
+							}
+
+						}
+					}, new UserAction.FailCallback() {
+						
+						@Override
+						public void onFail(int status, int reason) {
+							// TODO Auto-generated method stub
+							
+						}
+					});
+		} catch (JSONException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
-
-	private void loadingImg(){
-		new Thread(new Runnable(){
-
-			@Override
-			public void run() {
-				DownloadBitmap(url1,hotbook_big);
-				DownloadBitmap(url2,hotbook_small1);
-				DownloadBitmap(url3,hotbook_small2);
-				DownloadBitmap(url4,hotbook_small3);
-				DownloadBitmap(url5,hotbook_small4);
-				DownloadBitmap(url6,hotbook_small5);
-				DownloadBitmap(url7,hotbook_small6);
-
-			}
-			
-		}).start();
-	}
-	public void getHotBookCoverUrl()
+	
+	
+	public void getHotBookCover()
 	{
 		UserAction ua = new UserAction(this);
 		try {
@@ -108,7 +162,7 @@ public class Aty_Home extends Activity {
 				public void onSuccess(String jsonResult) {
 					// TODO Auto-generated method stub
 					try {
-						System.out.println(jsonResult);
+						//System.out.println(jsonResult);
 						JSONObject jsonObject = new JSONObject(jsonResult);
 						JSONObject jsonresult = jsonObject.getJSONObject(JsonTool.JSON_RESULT_CODE);
 						url1 = jsonresult.getString(BookInfo.HOTBOOT1);
@@ -118,8 +172,15 @@ public class Aty_Home extends Activity {
 						url5 = jsonresult.getString(BookInfo.HOTBOOT5);
 						url6 = jsonresult.getString(BookInfo.HOTBOOT6);
 						url7 = jsonresult.getString(BookInfo.HOTBOOT7);
-						System.out.println(url1);//ß@ÑeÊÇ›]†–î}µÄ
-						loadingImg();
+						//System.out.println(url1);
+						ImageHelper.getInstance().displayImage(url1, hotbook_big);
+						ImageHelper.getInstance().displayImage(url2, hotbook_small1);
+						ImageHelper.getInstance().displayImage(url3, hotbook_small2);
+						ImageHelper.getInstance().displayImage(url4, hotbook_small3);
+						ImageHelper.getInstance().displayImage(url5, hotbook_small4);
+						ImageHelper.getInstance().displayImage(url6, hotbook_small5);
+						ImageHelper.getInstance().displayImage(url7, hotbook_small6);
+						
 
 					} catch (JSONException e) {
 						// TODO Auto-generated catch block
@@ -139,41 +200,11 @@ public class Aty_Home extends Activity {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
+		ua = null;
 	}
 
-	public void DownloadBitmap(String bmurl,final ImageView iv)
-	{
-		Bitmap bm=null;
-		InputStream is =null;
-		BufferedInputStream bis=null;
-		try{
-			URL  url=new URL(bmurl);
-			URLConnection connection=url.openConnection();
-			bis=new BufferedInputStream(connection.getInputStream());
-			bm= BitmapFactory.decodeStream(bis);
-			final Bitmap bm1 = bm;
-			runOnUiThread(new Runnable() {
-				
-				@Override
-				public void run() {
-					iv.setImageBitmap(bm1);
-				}
-			});
-		}catch (Exception e){
-			e.printStackTrace();
-		}
-		finally {
-			try {
-				if(bis!=null)
-					bis.close();
-				if (is!=null)
-					is.close();
-			}catch (Exception e){
-				e.printStackTrace();
-			}
-		}
-		
-	}
+
 
 	private class myOnClickListener implements OnClickListener{
 

@@ -1,3 +1,6 @@
+/**
+ * @author MingLei Jia
+ */
 package com.secondhandbook.aty;
 import java.io.IOException;
 import java.util.Vector;

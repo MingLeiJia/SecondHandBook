@@ -1,3 +1,6 @@
+/**
+ * @author MingLei Jia
+ */
 package com.secondhandbook.aty;
 
 import android.app.TabActivity;

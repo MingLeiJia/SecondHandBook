@@ -10,9 +10,34 @@
             android:id="@+id/linearLayout1"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="160dp"
-            android:orientation="vertical" 
-            android:gravity="center">
+            android:gravity="center"
+            android:orientation="vertical" >
+
+            <FrameLayout
+                android:layout_width="fill_parent"
+                android:layout_height="160dp"
+                android:orientation="vertical" >
+
+                <android.support.v4.view.ViewPager
+                    android:id="@+id/viewPager"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content" />
+
+                <RelativeLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical" >
+
+                    <LinearLayout
+                        android:id="@+id/viewGroup"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="140dp"
+                        android:gravity="center_horizontal"
+                        android:orientation="horizontal" >
+                    </LinearLayout>
+                </RelativeLayout>
+            </FrameLayout>
 
             <TextView
                 android:layout_width="fill_parent"
@@ -122,10 +147,10 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="center"
                     android:drawableLeft="@drawable/hotbookicon"
                     android:paddingTop="2dp"
                     android:text="@string/hotbook_title"
-                    android:layout_gravity="center"
                     android:textSize="16dp" />
 
                 <LinearLayout
@@ -137,8 +162,8 @@
                         android:id="@+id/tv_bookmore"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:paddingTop="2dp"
                         android:layout_gravity="center"
+                        android:paddingTop="2dp"
                         android:text=">  "
                         android:textSize="25dp" />
                 </LinearLayout>
@@ -156,8 +181,7 @@
                 android:id="@+id/ll_hot"
                 android:layout_width="92dp"
                 android:layout_height="fill_parent"
-                android:gravity="center"
-                >
+                android:gravity="center" >
 
                 <ImageView
                     android:id="@+id/iv_hotbook_big"
@@ -165,7 +189,6 @@
                     android:layout_height="130dp"
                     android:layout_gravity="center"
                     android:src="@drawable/hotbook_big" />
-
             </LinearLayout>
 
             <View
@@ -189,29 +212,29 @@
 
                     <ImageView
                         android:id="@+id/iv_hotbook_small_1"
-                        android:scaleType="fitCenter"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
                         android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:scaleType="fitCenter"
                         android:src="@drawable/hotbook_small" />
 
                     <ImageView
                         android:id="@+id/iv_hotbook_small_2"
-                        android:scaleType="fitCenter"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
                         android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:scaleType="fitCenter"
                         android:src="@drawable/hotbook_small" />
 
                     <ImageView
                         android:id="@+id/iv_hotbook_small_3"
-                        android:scaleType="fitCenter"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
                         android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:scaleType="fitCenter"
                         android:src="@drawable/hotbook_small" />
                 </LinearLayout>
 
@@ -230,29 +253,29 @@
 
                     <ImageView
                         android:id="@+id/iv_hotbook_small_4"
-                        android:scaleType="fitCenter"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
                         android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:scaleType="fitCenter"
                         android:src="@drawable/hotbook_small" />
 
                     <ImageView
                         android:id="@+id/iv_hotbook_small_5"
-                        android:scaleType="fitCenter"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
                         android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:scaleType="fitCenter"
                         android:src="@drawable/hotbook_small" />
 
                     <ImageView
                         android:id="@+id/iv_hotbook_small_6"
-                        android:scaleType="fitCenter"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
                         android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:scaleType="fitCenter"
                         android:src="@drawable/hotbook_small" />
                 </LinearLayout>
             </LinearLayout>

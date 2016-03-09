@@ -21,6 +21,7 @@ public class UserAction {
 	
 	public static final int ACTION_PUBLICBOOK = 11;
 	public static final int ACTION_BUYBOOK = 10;
+	public static final int ACTION_DOWNCAROUSEBOOK = 17;
 
 
 	private Context context = null;
@@ -224,6 +225,39 @@ public class UserAction {
 
 		bookInfo = null;
 	}
+	
+	public void downCarouseBook(int action,
+			final SuccessCallback successCallback,
+			final FailCallback failCallback) throws JSONException {
+
+		BookInfo bookInfo = new BookInfo(context);
+		bookInfo.showhotbook(action,
+				new BookInfo.SuccessCallback() {
+			
+			@Override
+			public void onSuccess(String jsonResult) {
+				// TODO Auto-generated method stub
+				if (successCallback != null) {
+					successCallback.onSuccess(jsonResult);
+				} else {
+					failCallback.onFail(Config.STATUS_FAIL,
+							Config.STATUS_FAIL_REASON_OTHER);
+				}
+			}
+		}, new BookInfo.FailCallback() {
+			
+			@Override
+			public void onFail(int status, int reason) {
+				// TODO Auto-generated method stub
+				if (failCallback != null) {
+					failCallback.onFail(status, reason);
+				}
+			}
+		});
+
+		bookInfo = null;
+	}
+	
 
 	/**
 	 * 成功回调方法

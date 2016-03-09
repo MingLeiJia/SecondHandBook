@@ -1,3 +1,6 @@
+/**
+ * @author MingLei Jia
+ */
 package com.secondhandbook.info;
 
 import java.util.HashMap;
@@ -54,6 +57,11 @@ public class BookInfo implements Parcelable{
 	public static String HOTBOOT5 = "hotbook5";
 	public static String HOTBOOT6 = "hotbook6";
 	public static String HOTBOOT7 = "hotbook7";
+	
+	public static String CAROUSEBOOK1 = "carousebook1";
+	public static String CAROUSEBOOK2 = "carousebook2";
+	public static String CAROUSEBOOK3 = "carousebook3";
+	public static String CAROUSEBOOK4 = "carousebook4";
 
 
 	public String book_name;
@@ -144,6 +152,45 @@ public class BookInfo implements Parcelable{
 	public BookInfo(Context context) {
 		this.context = context;
 	}
+	
+	
+	/**
+	 * 获取輪播圖片的方法
+	 * @param action
+	 * @param successCallback
+	 * 	成功回调
+	 * @param failCallback
+	 * 	失败回调
+	 * @throws JSONException
+	 */
+	public void downCarouseBook(int action, 
+			final SuccessCallback successCallback,
+			final FailCallback failCallback)throws JSONException
+	{
+
+		// 带着请求参数链接服务器
+		new Netconnection(context,Config.GATE_URL, HttpMethod.POST,
+				new Netconnection.SuccessCallback() {
+
+					@Override
+					public void onSuccess(String result) {
+
+						if (successCallback != null) {
+							successCallback.onSuccess(result);
+						}
+					}
+				}, new Netconnection.FailCallback() {
+
+					@Override
+					public void onFail(int status, int reason) {
+
+						if (failCallback != null) {
+							failCallback.onFail(status, reason);
+						}
+					}
+				}, action,null);
+	}
+	
 	/**
 	 * 根据用户提交的种类获取相关书籍的方法
 	 * @param category
