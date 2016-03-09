@@ -35,7 +35,6 @@ import com.secondhandbook.info.UserAction;
 import com.secondhandbook.util.Config;
 import com.secondhandbook.util.ImageHelper;
 import com.secondhandbook.util.JsonTool;
-import com.secondhandbook.viewpager.CarouselViewPager;
 import com.secondhandbook.viewpager.MyViewPager;
 
 public class Aty_Home extends Activity {

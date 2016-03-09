@@ -1,12 +1,17 @@
 package com.secondhandbook.viewpager;
 
+import java.io.BufferedInputStream;
+import java.io.InputStream;
 import java.math.BigDecimal;
+import java.net.URL;
+import java.net.URLConnection;
 
 import com.secondhandbook.aty.R;
 import com.secondhandbook.util.ImageHelper;
 
 import android.content.Context;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Handler;
 import android.os.Message;
 import android.support.v4.view.ViewPager;
@@ -18,7 +23,7 @@ import android.widget.LinearLayout.LayoutParams;
 public class MyViewPager implements OnPageChangeListener{
 
 	private ImageView[] mDots;
-	private Bitmap[] mImageRes;
+	private String[] mImageRes;
 	private Context mContext;
 
 	private ImageView[][] mImageViews;
@@ -47,9 +52,7 @@ public class MyViewPager implements OnPageChangeListener{
 
 		this.mViewpager = mViewpager;
 
-		mImageRes = new Bitmap[url.length];
-
-		getBitmap(url);
+		mImageRes = url;
 
 
 		mViewpager.setOnPageChangeListener(this);
@@ -58,21 +61,32 @@ public class MyViewPager implements OnPageChangeListener{
 		initViewPager();
 	}
 
-	public void getBitmap(final String[] bmurl)
+	public Bitmap receiveImageSync(String bmurl)
 	{
-		for(int i=0; i<bmurl.length; i++)
-		{
-			System.out.println(bmurl[i].toString());
+		Bitmap bm=null;
+		InputStream is =null;
+		BufferedInputStream bis=null;
+		try{
+			URL  url=new URL(bmurl);
+			URLConnection connection=url.openConnection();
+			bis=new BufferedInputStream(connection.getInputStream());
+			bm= BitmapFactory.decodeStream(bis);
+		}catch (Exception e){
+			e.printStackTrace();
+		}
+		finally {
+			try {
+				if(bis!=null)
+					bis.close();
+				if (is!=null)
+					is.close();
+			}catch (Exception e){
+				e.printStackTrace();
+			}
 		}
 
-
-		for(int i=0; i<bmurl.length; i++)
-		{
-			mImageRes[i] = ImageHelper.getInstance().receiveImage(bmurl[i]);
-		}
-
+		return bm;
 	}
-
 	public void initDots(LinearLayout layoutDots) {
 
 		mDots = new ImageView[mImageRes.length];
@@ -140,20 +154,24 @@ public class MyViewPager implements OnPageChangeListener{
 
 		mImageViews[1] = new ImageView[mImageRes.length];
 
+
+		
+
 		for (int i = 0; i < mImageViews.length; i++) {
 
 			for (int j = 0; j < mImageViews[i].length; j++) {
 
 				ImageView iv = new ImageView(mContext);
 
-
-				iv.setImageBitmap(mImageRes[j]);
+				ImageHelper.getInstance().displayImage(mImageRes[j], iv);
 
 				mImageViews[i][j] = iv; 
 
 			}
 
 		}
+
+
 
 		mViewPagerAdp = new ViewPagerAdapter(mImageViews, mImageRes);
 

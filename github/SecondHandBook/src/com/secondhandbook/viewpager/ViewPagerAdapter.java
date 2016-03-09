@@ -16,9 +16,9 @@ public class ViewPagerAdapter extends PagerAdapter {
 
 	private ImageView[][] mImageViews;
 
-	private Bitmap[] mImageRes;
+	private String[] mImageRes;
 
-	public ViewPagerAdapter(ImageView[][] imageViews, Bitmap[] imageRes) {
+	public ViewPagerAdapter(ImageView[][] imageViews, String[] imageRes) {
 		this.mImageViews = imageViews;
 		this.mImageRes = imageRes;
 	}
