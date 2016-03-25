@@ -11,6 +11,7 @@ import org.json.JSONException;
 
 import com.secondhandbook.aty.R;
 import com.secondhandbook.info.BookInfo;
+import com.secondhandbook.util.ImageHelper;
 
 import android.content.Context;
 import android.graphics.Bitmap;
@@ -71,9 +72,8 @@ public class BookListAdapter extends BaseAdapter {
 		Typeface face = Typeface.createFromAsset(context.getAssets(),"fonts/fangzhenghuali.ttf");
 		neworold.setTypeface(face);
 		oldprice.getPaint().setFlags(Paint.STRIKE_THRU_TEXT_FLAG);
-		String bookName;
 		try {
-			bookName = ja.getJSONObject(position).getString(BookInfo.BOOKNAME);
+			String bookName = ja.getJSONObject(position).getString(BookInfo.BOOKNAME);
 			String bookAuthor = ja.getJSONObject(position).getString(BookInfo.BOOKAUTHOR);
 			String bookOldPrice = ja.getJSONObject(position).getString(BookInfo.BOOKPRICE);
 			String bookNewCost = ja.getJSONObject(position).getString(BookInfo.BOOKCOST);
@@ -90,11 +90,7 @@ public class BookListAdapter extends BaseAdapter {
 		//-----------------------------------------------------
 		try {
 			String bookcoverurl = ja.getJSONObject(position).getString(BookInfo.BOOKCOVERURL);
-			URL url = new URL(bookcoverurl);
-			URLConnection conn = url.openConnection();
-			BufferedInputStream bis = new BufferedInputStream(conn.getInputStream());
-			Bitmap bm = BitmapFactory.decodeStream(bis);
-			booklist_book.setImageBitmap(bm);
+			ImageHelper.getInstance().displayImage(bookcoverurl, booklist_book);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
