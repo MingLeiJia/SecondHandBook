@@ -40,14 +40,21 @@ public class BookInfo implements Parcelable{
 	
 	public static String BOOKNAME = "bookname";
 	public static String BOOKAUTHOR = "author";
-	public static String BOOKPRICE = "oldprice";
-	public static String BOOKCOST = "newprice";
-	public static String BOOKNEWOROLD = "neworold";
+	public static String BOOKPRICE = "price";
+	public static String BOOKCOST = "cost";
+	public static String BOOKNEWOROLD = "old";
+	public static String PUBLISHER = "publiccompany";
 	
-	public static String BOOKCOVERURL = "coverurl";
+	public static String BOOKCOVERURL = "bitmap";
 	
 	public static String ISNEWEST = "isnewest";
 	public static String ISLOWEST = "islowest";
+	
+	public static String ID = "id"; //区分书的标志id
+	public static String USERID = "userid";  //卖书着id
+	
+	
+	
 	
 	//热门书籍相关key
 	public static String HOTBOOT1 = "hotbook1";
@@ -203,7 +210,7 @@ public class BookInfo implements Parcelable{
 	 * 	失败回调
 	 * @throws JSONException
 	 */
-	public void showbook_by_category(String category,int action, 
+	public void searchBookbyCategory(String category,int action, 
 			final SuccessCallback successCallback,
 			final FailCallback failCallback)throws JSONException
 	{
@@ -449,6 +456,9 @@ public class BookInfo implements Parcelable{
 					}
 				}, action,jsonRequestParams);
 	}
+	
+
+	
 	/**
 	 * 成功回调方法
 	 *

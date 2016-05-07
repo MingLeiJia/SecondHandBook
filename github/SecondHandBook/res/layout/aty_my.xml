@@ -1,169 +1,159 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    android:id="@+id/ll_my"
+    xmlns:android="http://schemas.android.com/apk/res/android" 
     android:layout_width="fill_parent"
-    android:layout_height="fill_parent" >
+    android:layout_height="fill_parent"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="100dp"
+        android:background="@drawable/my_back" >
+
+        <ImageView
+            android:id="@+id/iv_head_photo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="14dp"
+            android:src="@drawable/my_head_photo" />
+
+        <TextView
+            android:id="@+id/tv_my_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/iv_head_photo"
+            android:layout_marginLeft="15dp"
+            android:layout_toRightOf="@+id/iv_head_photo"
+            android:text="@string/my_username"
+            android:textColor="@color/write"
+            android:textSize="18dp" />
+
+        <TextView
+            android:id="@+id/tv_my_account"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/iv_head_photo"
+            android:layout_alignLeft="@+id/tv_my_name"
+            android:text="@string/my_account"
+            android:textColor="@color/write"
+            android:textSize="18dp" />
+    </RelativeLayout>
 
     <LinearLayout
         android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:background="@color/write"
         android:orientation="vertical" >
 
-        <RelativeLayout
-            android:layout_width="fill_parent"
-            android:layout_height="100dp"
-            android:background="@drawable/my_back" >
-
-            <ImageView
-                android:id="@+id/iv_head_photo"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentLeft="true"
-                android:layout_centerVertical="true"
-                android:layout_marginLeft="14dp"
-                android:src="@drawable/my_head_photo" />
-
-            <TextView
-                android:id="@+id/tv_my_name"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignTop="@+id/iv_head_photo"
-                android:layout_marginLeft="15dp"
-                android:layout_toRightOf="@+id/iv_head_photo"
-                android:text="@string/my_username"
-                android:textColor="@color/write"
-                android:textSize="18dp" />
-
-            <TextView
-                android:id="@+id/tv_my_account"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignBottom="@+id/iv_head_photo"
-                android:layout_alignLeft="@+id/tv_my_name"
-                android:text="@string/my_account"
-                android:textColor="@color/write"
-                android:textSize="18dp" />
-        </RelativeLayout>
-
-        <LinearLayout
+        <TextView
+            android:id="@+id/tv_my_sell_book"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_marginTop="10dp"
-            android:background="@color/write" >
+            android:layout_marginLeft="20dp"
+            android:drawableLeft="@drawable/my_sell_title"
+            android:drawablePadding="15dp"
+            android:paddingBottom="12dp"
+            android:paddingTop="12dp"
+            android:text="@string/my_sell_book"
+            android:textSize="16sp" />
 
-            <TextView
-                android:id="@+id/tv_my_sell_book"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:paddingBottom="12dp"
-                android:paddingTop="12dp"
-                android:layout_marginLeft="20dp"
-                android:text="@string/my_sell_book"
-                android:drawableLeft="@drawable/my_sell_title"
-                android:drawablePadding="15dp"
-                android:textSize="16sp" />
+        <View
+            android:layout_width="300dp"
+            android:layout_height="1dip"
+            android:layout_gravity="center_horizontal"
+            android:background="@color/divide" />
 
-            <View
-                android:layout_width="300dp"
-                android:layout_height="1dip"
-                android:background="@color/divide"
-                android:layout_gravity="center_horizontal"
-                 />
-
-            <TextView
-                android:id="@+id/tv_my_buy_book"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:paddingBottom="12dp"
-                android:paddingTop="12dp"
-                android:layout_marginLeft="20dp"
-                android:text="@string/my_buy_book"
-                android:drawableLeft="@drawable/my_buy_title"
-                android:drawablePadding="15dp"
-                android:textSize="16sp" />
-
-            <View
-                android:layout_width="300dp"
-                android:layout_height="1dip"
-                android:layout_gravity="center_horizontal"
-                android:background="@color/divide"
-                />
-
-            <TextView
-                android:id="@+id/tv_my_collect_book"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:paddingBottom="12dp"
-                android:paddingTop="12dp"
-                android:layout_marginLeft="20dp"
-                android:text="@string/my_collect_book"
-                android:drawableLeft="@drawable/my_collect_title"
-                android:drawablePadding="24dp"
-                android:textSize="16sp" />
-        </LinearLayout>
-        
-                <LinearLayout
+        <TextView
+            android:id="@+id/tv_my_buy_book"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_marginTop="10dp"
-            android:background="@color/write" >
+            android:layout_marginLeft="20dp"
+            android:drawableLeft="@drawable/my_buy_title"
+            android:drawablePadding="15dp"
+            android:paddingBottom="12dp"
+            android:paddingTop="12dp"
+            android:text="@string/my_buy_book"
+            android:textSize="16sp" />
 
-            <TextView
-                android:id="@+id/tv_my_buy_setting"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:paddingBottom="12dp"
-                android:paddingTop="12dp"
-                android:layout_marginLeft="20dp"
-                android:text="@string/my_setting"
-                android:drawableLeft="@drawable/my_setting_title"
-                android:drawablePadding="24dp"
-                android:textSize="16sp" />
+        <View
+            android:layout_width="300dp"
+            android:layout_height="1dip"
+            android:layout_gravity="center_horizontal"
+            android:background="@color/divide" />
 
-            <View
-                android:layout_width="300dp"
-                android:layout_height="1dip"
-                android:background="@color/divide"
-                android:layout_gravity="center_horizontal"
-                 />
-
-            <TextView
-                android:id="@+id/tv_my_customservice"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:paddingBottom="12dp"
-                android:paddingTop="12dp"
-                android:layout_marginLeft="20dp"
-                android:text="@string/my_custom_service"
-                android:drawableLeft="@drawable/my_service_title"
-                android:drawablePadding="24dp"
-                android:textSize="16sp" />
-
-        </LinearLayout>
-        <LinearLayout
+        <TextView
+            android:id="@+id/tv_my_collect_book"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_marginTop="10dp"
-            android:background="@color/write" >
-
-            <TextView
-                android:id="@+id/tv_my_about"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:paddingBottom="12dp"
-                android:paddingTop="12dp"
-                android:layout_marginLeft="20dp"
-                android:text="@string/my_about"
-                android:drawableLeft="@drawable/my_about_title"
-                android:drawablePadding="24dp"
-                android:textSize="16dp" />
-
- 
-
-        </LinearLayout>
-         
+            android:layout_marginLeft="20dp"
+            android:drawableLeft="@drawable/my_collect_title"
+            android:drawablePadding="24dp"
+            android:paddingBottom="12dp"
+            android:paddingTop="12dp"
+            android:text="@string/my_collect_book"
+            android:textSize="16sp" />
     </LinearLayout>
 
-</ScrollView>
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:background="@color/write"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/tv_my_buy_setting"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:drawableLeft="@drawable/my_setting_title"
+            android:drawablePadding="24dp"
+            android:paddingBottom="12dp"
+            android:paddingTop="12dp"
+            android:text="@string/my_setting"
+            android:textSize="16sp" />
+
+        <View
+            android:layout_width="300dp"
+            android:layout_height="1dip"
+            android:layout_gravity="center_horizontal"
+            android:background="@color/divide" />
+
+        <TextView
+            android:id="@+id/tv_my_customservice"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:drawableLeft="@drawable/my_service_title"
+            android:drawablePadding="24dp"
+            android:paddingBottom="12dp"
+            android:paddingTop="12dp"
+            android:text="@string/my_custom_service"
+            android:textSize="16sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:background="@color/write"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/tv_my_about"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:drawableLeft="@drawable/my_about_title"
+            android:drawablePadding="24dp"
+            android:paddingBottom="12dp"
+            android:paddingTop="12dp"
+            android:text="@string/my_about"
+            android:textSize="16dp" />
+    </LinearLayout>
+
+</LinearLayout>

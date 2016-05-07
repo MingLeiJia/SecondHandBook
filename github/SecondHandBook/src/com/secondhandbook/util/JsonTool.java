@@ -7,7 +7,7 @@ public class JsonTool {
 	
 	public static final String JSON_REQUEST_PARAMS = "json_request_params";
 	public static final String JSON_RESULT_CODE = "json_result_code";
-	public static final String JSON_CARD_INFO_ARRAY = "json_card_info_array";
+	public static final String JSON_BOOK_ARRAY = "json_book_array";
 
 	public static final String STATUS = "status";
 	public static final String REASON = "reason";

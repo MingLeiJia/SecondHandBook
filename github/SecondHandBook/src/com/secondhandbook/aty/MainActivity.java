@@ -30,6 +30,8 @@ import android.widget.CompoundButton.OnCheckedChangeListener;
 @SuppressWarnings("deprecation")
 public class MainActivity extends TabActivity implements OnItemClickListener{
 
+
+
 	private TabHost mTabHost;
 	private Intent mAIntent;
 	private Intent mBIntent;
@@ -40,6 +42,13 @@ public class MainActivity extends TabActivity implements OnItemClickListener{
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.main);
+		
+
+	}
+	@Override
+	protected void onResume() {
+		// TODO Auto-generated method stub
+		super.onResume();
 		
         this.mAIntent = new Intent(this,Aty_Home.class);
         this.mBIntent = new Intent(this,Aty_Buy.class);

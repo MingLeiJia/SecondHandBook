@@ -78,6 +78,7 @@ public class BookListAdapter extends BaseAdapter {
 			String bookOldPrice = ja.getJSONObject(position).getString(BookInfo.BOOKPRICE);
 			String bookNewCost = ja.getJSONObject(position).getString(BookInfo.BOOKCOST);
 			String bookNewOrOld = ja.getJSONObject(position).getString(BookInfo.BOOKNEWOROLD);
+
 			bookname.setText(bookName);
 			author.setText(bookAuthor);
 			oldprice.setText(bookOldPrice);

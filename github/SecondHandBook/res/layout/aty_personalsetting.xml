@@ -272,7 +272,7 @@
     </LinearLayout>
 
         <Button
-            android:id="@+id/bn_setting_sure"
+            android:id="@+id/bn_setting_exit"
             android:layout_width="280dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"

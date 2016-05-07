@@ -115,7 +115,7 @@ public class TextViewWithIcon extends ImageView {
 		} else {
 			canvas.drawBitmap(icon, matrix, null);
 			paint.setColor(0xFF999999);
-			System.out.println("***************"+matrix.toString());
+			//System.out.println("***************"+matrix.toString());
 		}
 
 		canvas.drawText(text, (getWidth() - rect.width()) / 2, (height / 2)

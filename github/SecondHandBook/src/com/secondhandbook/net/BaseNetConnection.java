@@ -117,7 +117,7 @@ public class BaseNetConnection {
 					// 读取服务器返回的结果
 					BufferedReader br = new BufferedReader(
 							new InputStreamReader(conn.getInputStream(),
-									Config.CHARSET));
+									Config.CHARSET3));
 					String line = "";
 					while ((line = br.readLine()) != null) {
 						jsonResult.append(line);

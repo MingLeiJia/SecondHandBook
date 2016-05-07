@@ -246,6 +246,24 @@ public class Aty_Sell extends Activity {
 				
 			case R.id.bn_sell_book:
 									
+				String token = (String) SPUtils.getParam(Aty_Sell.this, SPKey.TOKEN, "hello");
+				if(token.equals("hello") || token.equals(null)){
+					new AlertDialog.Builder(Aty_Sell.this)
+					.setTitle("友情提示")
+					.setMessage("当前没有登录，无法发布书籍。")
+					.setCancelable(false)
+					.setNegativeButton("不发布", null)
+					.setPositiveButton("去登录", new android.content.DialogInterface.OnClickListener(){
+
+						@Override
+						public void onClick(DialogInterface dialog, int which) {
+							// TODO Auto-generated method stub
+							Toast.makeText(Aty_Sell.this, "请切换至我的开始登录！", Toast.LENGTH_SHORT).show();
+						}
+						
+					})
+					.show();
+				}else{
 				new AlertDialog.Builder(Aty_Sell.this)
 				.setTitle("友情提示")
 				.setMessage("设置地区发布更好哦~")
@@ -342,7 +360,7 @@ public class Aty_Sell extends Activity {
 						}
 					}
 				}).create().show();
-				
+				}
 				
 				
 				break;

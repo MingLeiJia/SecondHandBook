@@ -22,4 +22,8 @@ public class Information {
 	public static String JSON_NICKNAME = "json_nickname";
 	public static String JSON_ACCOUNT = "json_account";
 	public static String JSON_TOKEN = "json_token";
+	
+	public static String BOOKISBN = "BOOKISBN";
+	
+	
 }
