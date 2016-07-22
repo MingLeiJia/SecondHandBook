@@ -1,5 +1,7 @@
 package com.secondhandbook.aty.adapter;
-
+/**
+ * @author MingLei Jia
+ */
 import org.json.JSONArray;
 import org.json.JSONException;
 

@@ -1,5 +1,7 @@
 package com.secondhandbook.aty.adapter;
-
+/**
+ * @author MingLei Jia
+ */
 import java.util.List;
 
 import com.secondhandbook.aty.R;

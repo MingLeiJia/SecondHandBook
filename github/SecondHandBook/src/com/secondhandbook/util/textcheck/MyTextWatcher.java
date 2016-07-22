@@ -8,8 +8,7 @@ import android.text.Editable;
 import android.text.TextWatcher;
 
 /**
- * 
- *@author Marco
+ * @author MingLei Jia
  */
 public abstract class MyTextWatcher implements TextWatcher{
 	

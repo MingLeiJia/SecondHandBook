@@ -1,5 +1,7 @@
 package com.secondhandbook.util.textcheck;
-
+/**
+ * @author MingLei Jia
+ */
 import com.secondhandbook.aty.R;
 
 import android.text.Editable;

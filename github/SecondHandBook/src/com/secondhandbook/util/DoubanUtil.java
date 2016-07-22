@@ -13,7 +13,7 @@ import java.net.URL;
 import java.net.URLConnection;
 
 /**
- * Created by Jim on 13-7-10.
+ * @author MingLei Jia
  */
 public class DoubanUtil {
    public static String Download(String urlstr)

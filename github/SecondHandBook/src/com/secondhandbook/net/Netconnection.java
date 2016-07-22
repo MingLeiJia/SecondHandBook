@@ -1,5 +1,7 @@
 package com.secondhandbook.net;
-
+/**
+ * @author MingLei Jia
+ */
 
 import com.secondhandbook.net.httpMethod.HttpMethod;
 import com.secondhandbook.util.Config;

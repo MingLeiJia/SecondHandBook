@@ -8,10 +8,8 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 
 /**
- * @author Apathy°¢∫„
- * 
- *         ViewPager  ≈‰∆˜
- * */
+ * @author MingLei Jia
+ */
 public class ViewPagerAdapter extends PagerAdapter {
 
 	private ImageView[][] mImageViews;

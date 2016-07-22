@@ -1,5 +1,7 @@
 package com.secondhandbook.util;
-
+/**
+ * @author MingLei Jia
+ */
 public class Information {
 
 	public static String SUCCESS="success";

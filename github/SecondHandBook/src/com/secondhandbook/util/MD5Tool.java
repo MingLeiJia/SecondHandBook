@@ -1,5 +1,7 @@
 package com.secondhandbook.util;
-
+/**
+ * @author MingLei Jia
+ */
 import java.io.UnsupportedEncodingException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;

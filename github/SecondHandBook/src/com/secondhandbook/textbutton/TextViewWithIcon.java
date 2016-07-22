@@ -1,5 +1,7 @@
 package com.secondhandbook.textbutton;
-
+/**
+ * @author MingLei Jia
+ */
 
 import com.secondhandbook.aty.R;
 import com.secondhandbook.textbutton.TextWithIconGroup.OnItemClickListener;

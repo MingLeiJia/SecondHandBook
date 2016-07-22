@@ -1,5 +1,7 @@
 package com.secondhandbook.info;
-
+/**
+ * @author MingLei Jia
+ */
 public class SPKey {
 
 	public static String USERID = "userid_local";

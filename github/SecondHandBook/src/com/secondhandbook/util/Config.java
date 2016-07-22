@@ -1,5 +1,7 @@
 package com.secondhandbook.util;
-
+/**
+ * @author MingLei Jia
+ */
 public class Config {
 
 	public static String GATE_URL = "http://jiadinglei.6655.la/Project/originAjaxt.action";

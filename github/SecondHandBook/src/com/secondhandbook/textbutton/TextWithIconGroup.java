@@ -1,5 +1,7 @@
 package com.secondhandbook.textbutton;
-
+/**
+ * @author MingLei Jia
+ */
 import android.content.Context;
 import android.util.AttributeSet;
 import android.view.MotionEvent;

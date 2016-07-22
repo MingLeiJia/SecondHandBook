@@ -1,5 +1,7 @@
 package com.secondhandbook.aty.adapter;
-
+/**
+ * @author MingLei Jia
+ */
 import java.io.BufferedInputStream;
 import java.net.MalformedURLException;
 import java.net.URL;

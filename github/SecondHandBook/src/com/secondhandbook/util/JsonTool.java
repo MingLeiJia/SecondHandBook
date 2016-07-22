@@ -1,5 +1,7 @@
 package com.secondhandbook.util;
-
+/**
+ * @author MingLei Jia
+ */
 import org.json.JSONException;
 import org.json.JSONObject;
 

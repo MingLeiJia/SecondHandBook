@@ -1,5 +1,7 @@
 package com.secondhandbook.util;
-
+/**
+ * @author MingLei Jia
+ */
 public class Region {
 
 	//省级选项值

@@ -1,5 +1,7 @@
 package com.secondhandbook.info;
-
+/**
+ * @author MingLei Jia
+ */
 import java.util.HashMap;
 import java.util.Map;
 

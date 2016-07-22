@@ -4,8 +4,7 @@
 package com.secondhandbook.util.textcheck;
 
 /**
- * 
- *@author 星尘
+ * @author MingLei Jia
  */
 public class EdtCheckEntity {
 	

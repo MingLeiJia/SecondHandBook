@@ -261,7 +261,7 @@ public class Aty_Sell extends Activity {
 							Toast.makeText(Aty_Sell.this, "请切换至我的开始登录！", Toast.LENGTH_SHORT).show();
 						}
 						
-					})
+					}).create()
 					.show();
 				}else{
 				new AlertDialog.Builder(Aty_Sell.this)

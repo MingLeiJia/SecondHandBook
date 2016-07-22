@@ -1,5 +1,7 @@
 package com.secondhandbook.viewpager;
-
+/**
+ * @author MingLei Jia
+ */
 import java.io.BufferedInputStream;
 import java.io.InputStream;
 import java.math.BigDecimal;

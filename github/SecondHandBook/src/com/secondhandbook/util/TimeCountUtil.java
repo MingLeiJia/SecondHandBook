@@ -1,5 +1,7 @@
 package com.secondhandbook.util;
-
+/**
+ * @author MingLei Jia
+ */
 import com.secondhandbook.aty.R;
 import android.annotation.SuppressLint;
 import android.app.Activity;
